@@ -15,20 +15,18 @@ const conexao = mysql.createConnection({
 });
 
 conexao.connect((erro) => {
-
     if (erro) {
         console.log('Erro ao conectar no banco');
     } else {
         console.log('Banco conectado');
     }
-
 });
 
 app.get('/empresas', (req, res) => {
 
-    const comando = 'SELECT * FROM empresa';
+    const sql = 'SELECT * FROM empresa';
 
-    conexao.query(comando, (erro, resultado) => {
+    conexao.query(sql, (erro, resultado) => {
 
         if (erro) {
             res.send('Erro ao buscar empresas');
@@ -44,31 +42,26 @@ app.post('/empresa', (req, res) => {
 
     const dados = req.body;
 
-    const comando = `
-    
-    INSERT INTO empresa
-    (
-        nome,
-        cnpj,
-        email,
-        telefone,
-        contato,
-        endereco,
-        tipo_parceria,
-        website,
-        quantidade_vagas,
-        descricao_vagas,
-        aceita_estagiario,
-        observacoes,
-        status_empresa
-    )
-
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    
+    const sql = `
+        INSERT INTO empresa (
+            nome,
+            cnpj,
+            email,
+            telefone,
+            contato,
+            endereco,
+            tipo_parceria,
+            website,
+            quantidade_vagas,
+            descricao_vagas,
+            aceita_estagiario,
+            observacoes,
+            status_empresa
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
     const valores = [
-
         dados.nome,
         dados.cnpj,
         dados.email,
@@ -82,10 +75,9 @@ app.post('/empresa', (req, res) => {
         dados.aceita_estagiario,
         dados.observacoes,
         'pendente'
-
     ];
 
-    conexao.query(comando, valores, (erro) => {
+    conexao.query(sql, valores, (erro) => {
 
         if (erro) {
             res.send('Erro ao cadastrar empresa');
@@ -97,31 +89,49 @@ app.post('/empresa', (req, res) => {
 
 });
 
-app.put('/aprovar/:id', (req, res) => {
+app.put('/empresa/aprovar/:id', (req, res) => {
 
     const id = req.params.id;
 
-    const comando = `
-    
-    UPDATE empresa
-    SET status_empresa = 'aprovada'
-    WHERE id_empresa = ?
-    
+    const sql = `
+        UPDATE empresa
+        SET status_empresa = 'aprovada'
+        WHERE id_empresa = ?
     `;
 
-    conexao.query(comando, [id], (erro) => {
+    conexao.query(sql, [id], (erro) => {
 
         if (erro) {
             res.send('Erro ao aprovar empresa');
         } else {
-            res.send('Empresa aprovada');
+            res.send('Empresa aprovada com sucesso');
         }
 
     });
 
 });
 
+app.delete('/empresa/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    const sql = `
+        DELETE FROM empresa
+        WHERE id_empresa = ?
+    `;
+
+    conexao.query(sql, [id], (erro) => {
+
+        if (erro) {
+            res.send('Erro ao deletar empresa');
+        } else {
+            res.send('Empresa deletada com sucesso');
+        }
+
+    });
+
+});
 
 app.listen(3000, () => {
-    console.log('Servidor rodando');
+    console.log('Servidor rodando na porta 3000');
 });
