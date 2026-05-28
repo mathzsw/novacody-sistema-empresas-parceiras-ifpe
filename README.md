@@ -1,6 +1,5 @@
 # Sistema de Cadastro de Empresas Parceiras
-
-Projeto desenvolvido para a disciplina Projeto e Prática 2 do IFPE Campus Jaboatão.
+- Projeto desenvolvido para a disciplina Projeto e Prática 2 do IFPE Campus Jaboatão.
 
 ## Equipe
 - Matheus Augusto Rodrigues de Alencar
