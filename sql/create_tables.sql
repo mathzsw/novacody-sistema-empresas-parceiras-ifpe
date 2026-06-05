@@ -15,9 +15,9 @@ CREATE TABLE empresa (
     status_empresa VARCHAR(20)
 );
 
-CREATE TABLE administrador (
-    id_admin INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(100),
-    senha VARCHAR(100),
-    nome VARCHAR(100)
+CREATE TABLE usuarios (
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(100) NOT NULL
 );
