@@ -1,21 +1,25 @@
 # Sistema de Cadastro de Empresas Parceiras
-- Projeto desenvolvido para a disciplina Projeto e Prática 2 do IFPE Campus Jaboatão.
+
+Projeto desenvolvido para a disciplina Projeto e Prática 2 (PP2) do IFPE Campus Jaboatão dos Guararapes.
 
 ## Equipe
+
 - Matheus Augusto Rodrigues de Alencar
 - Thais Myller
 
 ## Empresa
+
 Novacody
 
-## Objetivo
-Desenvolver um sistema para cadastro e gerenciamento de empresas parceiras do IFPE, facilitando o acesso dos alunos às oportunidades de estágio e projetos.
+## Descrição
+
+O projeto tem como objetivo desenvolver um sistema web para cadastro e gerenciamento de empresas parceiras do IFPE, permitindo consultas, atualizações e divulgação de oportunidades para os alunos.
 
 ## Tecnologias
+
 - HTML
 - CSS
 - JavaScript
-- Sistema de Banco de Dados
-
-## Metodologia
-O projeto utiliza Scrum como metodologia ágil de desenvolvimento.
+- Node.js
+- Express
+- MySQL
