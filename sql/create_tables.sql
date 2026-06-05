@@ -17,7 +17,7 @@ CREATE TABLE empresa (
 
 CREATE TABLE administrador (
     id_admin INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(100),
-    senha VARCHAR(100),
-    nome VARCHAR(100)
+    nome VARCHAR(100),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(100) NOT NULL
 );
