@@ -1,28 +1,28 @@
+const express = require('express');
 const exphbs = require('express-handlebars');
+const mysql = require('mysql2');
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.engine('handlebars', exphbs.engine({ defaultLayout: false }));
 app.set('view engine', 'handlebars');
 
-app.use(express.json());
-
 const conexao = mysql.createConnection({
     host: 'localhost',
-    user: 'aluno',
+    user: 'root',
     password: 'ifpecjbg',
     database: 'novacody'
 });
 
 conexao.connect((erro) => {
-
     if (erro) {
-        console.log('Erro ao conectar');
+        console.log("ERRO COMPLETO:", erro);
     } else {
-        console.log('Banco conectado');
+        console.log("Conectado com sucesso!");
     }
-
 });
 
 app.get('/empresas', (req, res) => {
@@ -34,7 +34,7 @@ app.get('/empresas', (req, res) => {
         if (erro) {
             res.send('Erro ao buscar empresas');
         } else {
-            res.render(resultado);
+            res.json(resultado); // CORRIGIDO
         }
 
     });
@@ -136,7 +136,7 @@ app.put('/empresa/:id', (req, res) => {
     conexao.query(sql, valores, (erro) => {
 
         if (erro) {
-            res.send('Erro ao editar');
+            res.send('Erro ao editar empresa');
         } else {
             res.send('Empresa editada');
         }
@@ -158,7 +158,7 @@ app.put('/empresa/aprovar/:id', (req, res) => {
     conexao.query(sql, [id], (erro) => {
 
         if (erro) {
-            res.send('Erro ao aprovar');
+            res.send('Erro ao aprovar empresa');
         } else {
             res.send('Empresa aprovada');
         }
@@ -167,7 +167,23 @@ app.put('/empresa/aprovar/:id', (req, res) => {
 
 });
 
+app.delete('/empresa/:id', (req, res) => {
 
+    const id = req.params.id;
+
+    const sql = 'DELETE FROM empresa WHERE id_empresa = ?';
+
+    conexao.query(sql, [id], (erro) => {
+
+        if (erro) {
+            res.send('Erro ao deletar empresa');
+        } else {
+            res.send('Empresa removida');
+        }
+
+    });
+
+});
 
 app.listen(3000, () => {
     console.log('Servidor rodando');
