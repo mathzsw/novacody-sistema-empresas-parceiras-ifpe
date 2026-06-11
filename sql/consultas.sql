@@ -1,3 +1,4 @@
+USE novacody;
 SELECT * FROM empresa;
 
 SELECT * FROM administrador;

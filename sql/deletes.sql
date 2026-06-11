@@ -1,3 +1,4 @@
+USE novacody;
 DELETE FROM empresa
 WHERE id_empresa = 1;
 

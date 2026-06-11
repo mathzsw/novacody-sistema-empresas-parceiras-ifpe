@@ -1,3 +1,5 @@
+create database novacody;
+USE novacody;
 CREATE TABLE empresa (
     id_empresa INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100),

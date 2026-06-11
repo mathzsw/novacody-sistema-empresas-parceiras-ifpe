@@ -1,3 +1,4 @@
+USE novacody;
 INSERT INTO empresa (
     nome,
     cnpj,
