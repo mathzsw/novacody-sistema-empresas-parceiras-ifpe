@@ -1,5 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+
 const sequelize = require('./config/bd');
 const Empresa = require('./models/Empresa');
 
@@ -19,12 +20,44 @@ sequelize.sync()
         console.log('Erro ao conectar:', erro);
     });
 
-app.get('/empresas', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
         const empresas = await Empresa.findAll();
-        res.json(empresas);
+
+        res.render('index', { empresas });
+
     } catch (erro) {
-        res.send('Erro ao buscar empresas');
+        res.send('Erro ao carregar página inicial');
+    }
+});
+
+app.get('/area-admin', (req, res) => {
+    res.render('areaadmin');
+});
+
+app.get('/pendentes', async (req, res) => {
+    try {
+        const empresas = await Empresa.findAll({
+            where: { status_empresa: 'pendente' }
+        });
+
+        res.render('pendentes', { empresas });
+
+    } catch (erro) {
+        res.send('Erro ao buscar pendentes');
+    }
+});
+
+app.get('/aprovadas', async (req, res) => {
+    try {
+        const empresas = await Empresa.findAll({
+            where: { status_empresa: 'aprovada' }
+        });
+
+        res.render('aprovadas', { empresas });
+
+    } catch (erro) {
+        res.send('Erro ao buscar aprovadas');
     }
 });
 
@@ -46,7 +79,8 @@ app.post('/empresa', async (req, res) => {
             status_empresa: 'pendente'
         });
 
-        res.send('Empresa cadastrada');
+        res.redirect('/');
+
     } catch (erro) {
         res.send('Erro ao cadastrar empresa');
     }
@@ -63,6 +97,7 @@ app.put('/empresa/:id', async (req, res) => {
         await empresa.update(req.body);
 
         res.send('Empresa editada');
+
     } catch (erro) {
         res.send('Erro ao editar empresa');
     }
@@ -76,11 +111,12 @@ app.put('/empresa/aprovar/:id', async (req, res) => {
             return res.send('Empresa não encontrada');
         }
 
-        empresa.status_empresa = 'aprovada';
-
-        await empresa.save();
+        await empresa.update({
+            status_empresa: 'aprovada'
+        });
 
         res.send('Empresa aprovada');
+
     } catch (erro) {
         res.send('Erro ao aprovar empresa');
     }
@@ -97,11 +133,12 @@ app.delete('/empresa/:id', async (req, res) => {
         await empresa.destroy();
 
         res.send('Empresa removida');
+
     } catch (erro) {
         res.send('Erro ao deletar empresa');
     }
 });
 
 app.listen(3000, () => {
-    console.log('Servidor rodando');
+    console.log('Servidor rodando na porta 3000');
 });
