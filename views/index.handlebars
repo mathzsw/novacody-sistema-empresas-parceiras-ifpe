@@ -1,6 +1,19 @@
 <h1>Empresas Parceiras IFPE</h1>
 
-<a href="/cadastroempresa">Cadastrar Empresa</a><br><br>
-<a href="/empresas">Ver Empresas</a><br><br>
-<a href="/aprovadas">Empresas Aprovadas</a><br><br>
-<a href="/pendentes">Empresas Pendentes</a>
+<a href="/area-admin">Área do Administrador</a>
+<a href="/cadastroempresa">Cadastrar Empresa</a>
+
+<hr>
+
+{{#each empresas}}
+
+<div>
+    <h3>{{nome}}</h3>
+    <p>{{email}}</p>
+    <p>{{telefone}}</p>
+    <p>Status: {{status_empresa}}</p>
+</div>
+
+<hr>
+
+{{/each}}
