@@ -5,15 +5,17 @@
 
 <hr>
 
-{{#each empresas}}
-
-<div>
-    <h3>{{nome}}</h3>
-    <p>{{email}}</p>
+<main class="empresas">
+        {{#each empresas}}
+            <article class="empresa-card">
+                <h2>{{nome}}</h2>
+                <p><strong>CNPJ:</strong> {{cnpj}}</p>
     <p>{{telefone}}</p>
     <p>Status: {{status_empresa}}</p>
-</div>
+</article>
+            <hr>
+        {{/each}}
+    </main>
 
-<hr>
-
-{{/each}}
+</body>
+</html>
