@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding-bottom: 60px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Verde do IFPE */
+.ifpe-header {
+    background-color: #00824A;
+    color: white;
+    padding: 18px 0;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-area span {
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px dashed rgba(255,255,255,0.5);
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.header-container a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Títulos da Página */
+.container > h1 {
+    margin-top: 40px;
+    font-size: 2.2rem;
+    color: #0f172a;
+}
+
+.container > p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+/* Seção de Busca e Filtros */
+.barra-de-busca {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.barra-de-busca > div:first-child {
+    display: flex;
+    align-items: center;
+    background: #f1f5f9;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.barra-de-busca input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 0.95rem;
+    margin-left: 10px;
+}
+
+.barra-de-busca > div:first-child i::before { content: "🔍"; }
+
+.container > a {
+    display: inline-block;
+    background: #00824A;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-bottom: 35px;
+    transition: 0.2s;
+}
+
+.container > a:hover {
+    background: #00693c;
+}
+
+.container > section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.empresa-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-destaque {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 12px;
+}
+
+.card-destaque h2 {
+    font-size: 1.15rem;
+    color: #0f172a;
+}
+
+.badge-tipo {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.card-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-conteudo p {
+    font-size: 0.9rem;
+    color: #475569;
+    display: flex;
+    align-items: center;
+}
+
+.card-conteudo i {
+    width: 25px;
+    display: inline-block;
+    font-style: normal;
+}
+
+.card-conteudo a {
+    color: #00824A;
+    text-decoration: none;
+}
+
+/* Mapeamento de Ícones Automático por CSS (Injeção de Emojis) */
+.card-conteudo p:nth-child(1) i::before { content: "🪪"; } /* CNPJ */
+.card-conteudo p:nth-child(2) i::before { content: "✉️"; } /* Email */
+.card-conteudo p:nth-child(3) i::before { content: "📞"; } /* Telefone */
+.card-conteudo p:nth-child(4) i::before { content: "📍"; } /* Endereço */
+.card-conteudo p:nth-child(5) i::before { content: "🌐"; } /* Website */
+.card-conteudo p .contato-icon::before { content: "👤"; }  /* Contato */
+
+.status-estagio {
+    margin-top: 5px;
+    color: #1e40af !important;
+    background: #eff6ff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.card-conteudo p .check-icon::before { content: "✅"; }
+
+.card-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.vagas-count {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 6px;
+}

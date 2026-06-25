@@ -1,21 +1,61 @@
-<h1>Empresas Parceiras IFPE</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresas Parceiras IFPE</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="ifpe-header">
+    <div class="header-container">
+        <div class="logo-area">
+            <span> ifpe </span>
+        </div>
+        <a href="/area-admin"><i>Área administrativa</i></a>
+        <a href="/cadastroempresa">Solicitar Cadastro de Empresas</a>
+    </div>
+</header>
 
-<a href="/area-admin">Área do Administrador</a>
-<a href="/cadastroempresa">Cadastrar Empresa</a>
+<main class="container">
+    <h1>Empresas Parceiras IFPE</h1>
+    <p>Explore oportunidades de estágio e emprego</p>
 
-<hr>
+    <div class="barra-de-busca">
+        <div>
+            <i></i>
+            <input type="text" placeholder="Buscar por nome, CNPJ, email, cidade ou curso...">
 
-<main class="empresas">
+    </div>
+    
+    <section>
         {{#each empresas}}
             <article class="empresa-card">
-                <h2>{{nome}}</h2>
-                <p><strong>CNPJ:</strong> {{cnpj}}</p>
-    <p>{{telefone}}</p>
-    <p>Status: {{status_empresa}}</p>
-</article>
-            <hr>
+                <div class="card-destaque">
+                    <h2>{{nome}}</h2>
+                    <span class="badge-tipo">{{tipo_parceria}}</span>
+                </div>
+
+                <div class="card-conteudo">
+                    <p><i></i> <strong>CNPJ:</strong> {{cnpj}}</p>
+                    <p><i></i> {{email}}</p>
+                    <p><i></i> {{telefone}}</p>
+                    <p><i></i> {{endereco}}</p>
+                    <p><i></i> <a href="{{website}}" target="_blank">{{website}}</a></p>
+                    <p><i class="contato-icon"></i> {{contato}}</p> <!-- Diferenciação rápida para o contato -->
+                    
+                    {{#if aceita_estagiario}}
+                        <p class="status-estagio"><i class="check-icon"></i> Aceita Estagiários</p>
+                    {{/if}}
+                </div>
+
+                <div class="card-footer">
+                    <span class="vagas-count">{{quantidade_vagas}} vagas</span>
+                </div>
+            </article>
         {{/each}}
-    </main>
+    </section>
+</main>
 
 </body>
 </html>

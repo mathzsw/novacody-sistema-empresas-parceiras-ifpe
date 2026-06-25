@@ -6,10 +6,17 @@ const Empresa = require('./models/Empresa');
 
 const app = express();
 
+app.use(express.static('public')); 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.engine('handlebars', exphbs.engine({ defaultLayout: false }));
+app.engine('handlebars', exphbs.engine({ 
+    defaultLayout: false,
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true
+    }
+}));
 app.set('view engine', 'handlebars');
 
 sequelize.sync()
@@ -22,10 +29,10 @@ sequelize.sync()
 
 app.get('/', async (req, res) => {
     try {
-        const empresas = await Empresa.findAll();
-
+        const empresas = await Empresa.findAll({
+            where: {status_empresa: 'aprovada'}
+        });
         res.render('index', { empresas });
-
     } catch (erro) {
         res.send('Erro ao carregar página inicial');
     }
@@ -61,6 +68,14 @@ app.get('/aprovadas', async (req, res) => {
     }
 });
 
+app.get('/cadastroempresa', (req, res) => {
+    res.render('cadastroempresa');
+});
+
+app.get('/cadastroempresaadmin', (req, res) => {
+    res.render('cadastroempresaadmin'); 
+});
+
 app.post('/empresa', async (req, res) => {
     try {
         await Empresa.create({
@@ -74,7 +89,7 @@ app.post('/empresa', async (req, res) => {
             website: req.body.website,
             quantidade_vagas: req.body.quantidade_vagas,
             descricao_vagas: req.body.descricao_vagas,
-            aceita_estagiario: req.body.aceita_estagiario,
+            aceita_estagiario: req.body.aceita_estagiario === 'on' ? true : false,
             observacoes: req.body.observacoes,
             status_empresa: 'pendente'
         });
@@ -83,6 +98,32 @@ app.post('/empresa', async (req, res) => {
 
     } catch (erro) {
         res.send('Erro ao cadastrar empresa');
+    }
+});
+
+app.post('/empresa/admin', async (req, res) => {
+    try {
+        await Empresa.create({
+            nome: req.body.nome,
+            cnpj: req.body.cnpj,
+            email: req.body.email,
+            telefone: req.body.telefone,
+            contato: req.body.contato,
+            endereco: req.body.endereco,
+            tipo_parceria: req.body.tipo_parceria,
+            website: req.body.website,
+            quantidade_vagas: req.body.quantidade_vagas,
+            descricao_vagas: req.body.descricao_vagas,
+            aceita_estagiario: req.body.aceita_estagiario === 'on' ? true : false,
+            observacoes: req.body.observacoes,
+            status_empresa: 'aprovada'
+        });
+
+        res.redirect('/');
+
+    } catch (erro) {
+        console.log(erro);
+        res.send('Erro ao cadastrar empresa pelo painel admin');
     }
 });
 
@@ -103,7 +144,7 @@ app.put('/empresa/:id', async (req, res) => {
     }
 });
 
-app.put('/empresa/aprovar/:id', async (req, res) => {
+app.post('/empresa/aprovar/:id', async (req, res) => {
     try {
         const empresa = await Empresa.findByPk(req.params.id);
 
@@ -111,18 +152,16 @@ app.put('/empresa/aprovar/:id', async (req, res) => {
             return res.send('Empresa não encontrada');
         }
 
-        await empresa.update({
-            status_empresa: 'aprovada'
-        });
-
-        res.send('Empresa aprovada');
+        await empresa.update({ status_empresa: 'aprovada' });
+        
+        res.redirect('/pendentes'); 
 
     } catch (erro) {
         res.send('Erro ao aprovar empresa');
     }
 });
 
-app.delete('/empresa/:id', async (req, res) => {
+app.post('/empresa/deletar/:id', async (req, res) => {
     try {
         const empresa = await Empresa.findByPk(req.params.id);
 
@@ -131,8 +170,8 @@ app.delete('/empresa/:id', async (req, res) => {
         }
 
         await empresa.destroy();
-
-        res.send('Empresa removida');
+        
+        res.redirect('/pendentes');
 
     } catch (erro) {
         res.send('Erro ao deletar empresa');

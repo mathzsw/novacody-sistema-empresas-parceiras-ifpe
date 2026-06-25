@@ -5,7 +5,17 @@
 <div>
     <h3>{{nome}}</h3>
     <p>{{email}}</p>
-</div>
+    <p>tipo: {{tipo_parceria}}</p>
+
+    <form action="/empresa/aprovar/{{id}}" method="POST" style="display:inline;">
+    <button type="submite" style="background-color: green; color: white;">Aprovar</button> 
+    </form>
+
+    <form action="/empresa/deletar/{{id}}" method="POST" style="display:inline;">
+    <button type="submit" style="background-color: red; color: white;">Recusar</button>
+    </form>
+
+    </div>
 
 <hr>
 
