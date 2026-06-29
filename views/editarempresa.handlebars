@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Empresa</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="form-container">
+
+    <a href="/area-admin" class="voltar">
+        ← Voltar
+    </a>
+
+    <div class="info-box">
+        <h3>Editar Empresa</h3>
+        <p>
+            Atualize os dados da empresa parceira do IFPE.
+        </p>
+    </div>
+
+    <div class="form-box">
+
+        <h2>Informações Básicas</h2>
+
+        <form action="/empresa/editar/{{empresa.id}}" method="POST">
+
+            <label>Nome da Empresa *</label>
+            <input
+                type="text"
+                name="nome"
+                value="{{empresa.nome}}"
+                required
+            >
+
+            <label>CNPJ *</label>
+            <input
+                type="text"
+                name="cnpj"
+                value="{{empresa.cnpj}}"
+            >
+
+            <label>E-mail *</label>
+            <input
+                type="email"
+                name="email"
+                value="{{empresa.email}}"
+            >
+
+            <label>Telefone *</label>
+            <input
+                type="text"
+                name="telefone"
+                value="{{empresa.telefone}}"
+            >
+
+            <label>Pessoa do Contato *</label>
+            <input
+                type="text"
+                name="contato"
+                value="{{empresa.contato}}"
+            >
+
+            <label>Endereço *</label>
+            <input
+                type="text"
+                name="endereco"
+                value="{{empresa.endereco}}"
+            >
+
+            <h2>Informações de Parceria</h2>
+
+            <label>Tipo de Parceria *</label>
+            <input
+                type="text"
+                name="tipo_parceria"
+                value="{{empresa.tipo_parceria}}"
+            >
+
+            <label>Website</label>
+            <input
+                type="text"
+                name="website"
+                value="{{empresa.website}}"
+            >
+
+            <label>Vagas Disponíveis</label>
+            <input
+                type="number"
+                name="quantidade_vagas"
+                value="{{empresa.quantidade_vagas}}"
+            >
+
+            <div class="checkbox-area">
+                <input type="checkbox" name="aceita_estagiario">
+                <span>Aceita Estagiários</span>
+            </div>
+
+            <label>Observações</label>
+
+            <textarea
+                name="observacoes"
+            >{{empresa.observacoes}}</textarea>
+
+            <div class="botoes-form">
+
+                <a href="/area-admin" class="btn-cancelar">
+                    Cancelar
+                </a>
+
+                <button type="submit" class="btn-salvar">
+                    Salvar Alterações
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,61 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empresas Parceiras IFPE</title>
-    <link rel="stylesheet" href="/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Empresas Parceiras IFPE</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
 <header class="ifpe-header">
-    <div class="header-container">
+
+    <div class="container header-container">
+
         <div class="logo-area">
-            <span> ifpe </span>
+            <img src="/img/ifpelogo.png" alt="IFPE">
         </div>
-        <a href="/area-admin"><i>Área administrativa</i></a>
-        <a href="/cadastroempresa">Solicitar Cadastro de Empresas</a>
+
+        <div class="header-buttons">
+            <a href="/loginadmin">Área Administrativa</a>
+            <a href="/cadastroempresa">Solicitar Cadastro</a>
+        </div>
+
     </div>
+
 </header>
 
-<main class="container">
+<div class="container">
+
     <h1>Empresas Parceiras IFPE</h1>
-    <p>Explore oportunidades de estágio e emprego</p>
 
-    <div class="barra-de-busca">
-        <div>
-            <i></i>
-            <input type="text" placeholder="Buscar por nome, CNPJ, email, cidade ou curso...">
+    <p>
+        Explore oportunidades de estágio e emprego
+    </p>
 
-    </div>
-    
+    <form action="/" method="GET">
+
+        <div class="barra-de-busca">
+
+            <input
+                type="text"
+                name="busca"
+                value="{{busca}}"
+                placeholder="Buscar por nome, CNPJ, email..."
+            >
+
+        </div>
+
+        <div class="filtro-area">
+
+            <select name="tipo">
+                <option value="">Todas</option>
+                <option value="Estágio" {{estagio}}>Estágio</option>
+                <option value="Emprego" {{emprego}}>Emprego</option>
+                <option value="Projeto de Extensão" {{projeto}}>
+                    Projeto de Extensão
+                </option>
+            </select>
+
+            <button type="submit">
+                Filtrar
+            </button>
+
+        </div>
+
+    </form>
+
     <section>
+
         {{#each empresas}}
-            <article class="empresa-card">
-                <div class="card-destaque">
-                    <h2>{{nome}}</h2>
-                    <span class="badge-tipo">{{tipo_parceria}}</span>
-                </div>
 
-                <div class="card-conteudo">
-                    <p><i></i> <strong>CNPJ:</strong> {{cnpj}}</p>
-                    <p><i></i> {{email}}</p>
-                    <p><i></i> {{telefone}}</p>
-                    <p><i></i> {{endereco}}</p>
-                    <p><i></i> <a href="{{website}}" target="_blank">{{website}}</a></p>
-                    <p><i class="contato-icon"></i> {{contato}}</p> <!-- Diferenciação rápida para o contato -->
-                    
-                    {{#if aceita_estagiario}}
-                        <p class="status-estagio"><i class="check-icon"></i> Aceita Estagiários</p>
-                    {{/if}}
-                </div>
+        <div class="empresa-card">
 
-                <div class="card-footer">
-                    <span class="vagas-count">{{quantidade_vagas}} vagas</span>
-                </div>
-            </article>
+            <h2>{{nome}}</h2>
+
+            <p><strong>CNPJ:</strong> {{cnpj}}</p>
+
+            <p>{{email}}</p>
+
+            <p>{{telefone}}</p>
+
+            <p>{{endereco}}</p>
+
+            <p>{{website}}</p>
+
+            <p>{{contato}}</p>
+
+            <p>{{tipo_parceria}}</p>
+
+            <p>
+                <strong>{{quantidade_vagas}} vagas</strong>
+            </p>
+
+        </div>
+
         {{/each}}
+
     </section>
-</main>
+
+</div>
 
 </body>
 </html>

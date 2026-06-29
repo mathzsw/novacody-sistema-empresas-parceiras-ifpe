@@ -1,13 +1,14 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const path = require('path');
 
 const sequelize = require('./config/bd');
 const Empresa = require('./models/Empresa');
+const { Op } = require('sequelize');
 
 const app = express();
 
-app.use(express.static('public')); 
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -28,48 +29,80 @@ sequelize.sync()
     });
 
 app.get('/', async (req, res) => {
-    try {
-        const empresas = await Empresa.findAll({
-            where: {status_empresa: 'aprovada'}
-        });
-        res.render('index', { empresas });
-    } catch (erro) {
-        res.send('Erro ao carregar página inicial');
+
+    const busca = req.query.busca || '';
+    const tipo = req.query.tipo || '';
+
+    let where = {
+        status_empresa: 'aprovada'
+    };
+
+    if (busca) {
+        where[Op.or] = [
+            {
+                nome: {
+                    [Op.like]: `%${busca}%`
+                }
+            },
+            {
+                cnpj: {
+                    [Op.like]: `%${busca}%`
+                }
+            },
+            {
+                email: {
+                    [Op.like]: `%${busca}%`
+                }
+            },
+            {
+                contato: {
+                    [Op.like]: `%${busca}%`
+                }
+            }
+        ];
     }
+
+    if (tipo) {
+    where.tipo_parceria = {
+        [Op.like]: `%${tipo}%`
+    };
+}
+    const empresas = await Empresa.findAll({
+        where
+    });
+
+    res.render('index', {
+    empresas,
+    busca,
+    estagio: tipo === 'Estágio' ? 'selected' : '',
+    emprego: tipo === 'Emprego' ? 'selected' : '',
+    projeto: tipo === 'Projeto de Extensão' ? 'selected' : ''
+});
 });
 
-app.get('/area-admin', (req, res) => {
-    res.render('areaadmin');
-});
+app.get('/area-admin', async (req, res) => {
+    const pendentes = await Empresa.findAll({
+        where: {
+            status_empresa: 'pendente'
+        }
+    });
 
-app.get('/pendentes', async (req, res) => {
-    try {
-        const empresas = await Empresa.findAll({
-            where: { status_empresa: 'pendente' }
-        });
+    const aprovadas = await Empresa.findAll({
+        where: {
+            status_empresa: 'aprovada'
+        }
+    });
 
-        res.render('pendentes', { empresas });
-
-    } catch (erro) {
-        res.send('Erro ao buscar pendentes');
-    }
-});
-
-app.get('/aprovadas', async (req, res) => {
-    try {
-        const empresas = await Empresa.findAll({
-            where: { status_empresa: 'aprovada' }
-        });
-
-        res.render('aprovadas', { empresas });
-
-    } catch (erro) {
-        res.send('Erro ao buscar aprovadas');
-    }
+    res.render('areaadmin', {
+        pendentes,
+        aprovadas
+    });
 });
 
 app.get('/cadastroempresa', (req, res) => {
-    res.render('cadastroempresa');
+    res.render('cadastroempresa', {
+    sucesso: true
+});
 });
 
 app.get('/cadastroempresaadmin', (req, res) => {
@@ -94,7 +127,7 @@ app.post('/empresa', async (req, res) => {
             status_empresa: 'pendente'
         });
 
-        res.redirect('/');
+        res.render('cadastroconcluido');
 
     } catch (erro) {
         res.send('Erro ao cadastrar empresa');
@@ -127,6 +160,54 @@ app.post('/empresa/admin', async (req, res) => {
     }
 });
 
+app.get('/empresa/editar/:id', async (req, res) => {
+    try {
+        const empresa = await Empresa.findByPk(req.params.id);
+
+        if (!empresa) {
+            return res.send('Empresa não encontrada');
+        }
+
+        res.render('editarempresa', {
+            empresa
+        });
+
+    } catch (erro) {
+        res.send('Erro ao carregar empresa');
+    }
+});
+
+app.post('/empresa/editar/:id', async (req, res) => {
+    try {
+        const empresa = await Empresa.findByPk(req.params.id);
+
+        if (!empresa) {
+            return res.send('Empresa não encontrada');
+        }
+
+        await empresa.update({
+            nome: req.body.nome,
+            cnpj: req.body.cnpj,
+            email: req.body.email,
+            telefone: req.body.telefone,
+            contato: req.body.contato,
+            endereco: req.body.endereco,
+            tipo_parceria: req.body.tipo_parceria,
+            website: req.body.website,
+            quantidade_vagas: req.body.quantidade_vagas,
+            descricao_vagas: req.body.descricao_vagas,
+            aceita_estagiario:
+                req.body.aceita_estagiario === 'on',
+            observacoes: req.body.observacoes
+        });
+
+        res.redirect('/area-admin');
+
+    } catch (erro) {
+        res.send('Erro ao editar empresa');
+    }
+});
+
 app.put('/empresa/:id', async (req, res) => {
     try {
         const empresa = await Empresa.findByPk(req.params.id);
@@ -145,37 +226,29 @@ app.put('/empresa/:id', async (req, res) => {
 });
 
 app.post('/empresa/aprovar/:id', async (req, res) => {
-    try {
-        const empresa = await Empresa.findByPk(req.params.id);
+    const empresa = await Empresa.findByPk(req.params.id);
 
-        if (!empresa) {
-            return res.send('Empresa não encontrada');
-        }
-
-        await empresa.update({ status_empresa: 'aprovada' });
-        
-        res.redirect('/pendentes'); 
-
-    } catch (erro) {
-        res.send('Erro ao aprovar empresa');
+    if (!empresa) {
+        return res.send('Empresa não encontrada');
     }
+
+    await empresa.update({
+        status_empresa: 'aprovada'
+    });
+
+    res.redirect('/area-admin');
 });
 
 app.post('/empresa/deletar/:id', async (req, res) => {
-    try {
-        const empresa = await Empresa.findByPk(req.params.id);
+    const empresa = await Empresa.findByPk(req.params.id);
 
-        if (!empresa) {
-            return res.send('Empresa não encontrada');
-        }
-
-        await empresa.destroy();
-        
-        res.redirect('/pendentes');
-
-    } catch (erro) {
-        res.send('Erro ao deletar empresa');
+    if (!empresa) {
+        return res.send('Empresa não encontrada');
     }
+
+    await empresa.destroy();
+
+    res.redirect('/area-admin');
 });
 
 app.listen(3000, () => {

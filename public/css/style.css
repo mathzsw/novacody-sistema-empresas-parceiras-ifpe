@@ -1,212 +1,371 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-body {
-    background-color: #f8fafc;
-    color: #1e293b;
-    padding-bottom: 60px;
+body{
+    background:#f5f5f5;
+    color:#222;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:0 auto;
 }
 
-/* Header Verde do IFPE */
-.ifpe-header {
-    background-color: #00824A;
-    color: white;
-    padding: 18px 0;
+.ifpe-header{
+    background:#006b3f;
+    padding:20px 0;
 }
 
-.header-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+.header-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.logo-area span {
-    font-weight: 800;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.logo-area img{
+    height:90px;
 }
 
-.header-container a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border: 1px dashed rgba(255,255,255,0.5);
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: 0.2s;
+.header-buttons{
+    display:flex;
+    gap:20px;
 }
 
-.header-container a:hover {
-    background: rgba(255,255,255,0.1);
+.header-buttons a{
+    text-decoration:none;
+    color:white;
+    border:1px solid white;
+    padding:12px 28px;
+    border-radius:30px;
+    font-size:15px;
 }
 
-/* Títulos da Página */
-.container > h1 {
-    margin-top: 40px;
-    font-size: 2.2rem;
-    color: #0f172a;
+h1{
+    margin-top:40px;
+    margin-bottom:10px;
+    font-size:55px;
+    line-height:1.1;
 }
 
-.container > p {
-    color: #64748b;
-    margin-bottom: 25px;
+.container > p{
+    font-size:20px;
+    color:#555;
+    margin-bottom:30px;
 }
 
-/* Seção de Busca e Filtros */
-.barra-de-busca {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 25px;
+.barra-de-busca{
+    margin-bottom:20px;
 }
 
-.barra-de-busca > div:first-child {
-    display: flex;
-    align-items: center;
-    background: #f1f5f9;
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin-bottom: 15px;
+.barra-de-busca input{
+    width:100%;
+    padding:20px;
+    border:1px solid #ddd;
+    border-radius:25px;
+    background:white;
+    font-size:17px;
 }
 
-.barra-de-busca input {
-    border: none;
-    background: transparent;
-    outline: none;
-    width: 100%;
-    font-size: 0.95rem;
-    margin-left: 10px;
+.filtro-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:40px;
 }
 
-.barra-de-busca > div:first-child i::before { content: "🔍"; }
-
-.container > a {
-    display: inline-block;
-    background: #00824A;
-    color: white;
-    text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    margin-bottom: 35px;
-    transition: 0.2s;
+.filtro-area select{
+    padding:12px 20px;
+    border-radius:15px;
+    border:1px solid #ccc;
+    background:white;
+    font-size:15px;
 }
 
-.container > a:hover {
-    background: #00693c;
+.filtro-area button{
+    background:black;
+    color:white;
+    border:none;
+    padding:12px 30px;
+    border-radius:25px;
+    cursor:pointer;
 }
 
-.container > section {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 25px;
+section{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(420px,1fr));
+    gap:25px;
+    margin-bottom:40px;
 }
 
-.empresa-card {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+.empresa-card{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
 
-.card-destaque {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 12px;
+.empresa-card h2,
+.empresa-card h3{
+    font-size:34px;
+    margin-bottom:20px;
 }
 
-.card-destaque h2 {
-    font-size: 1.15rem;
-    color: #0f172a;
+.empresa-card p{
+    color:#555;
+    margin-bottom:10px;
+    line-height:1.5;
 }
 
-.badge-tipo {
-    background: #e0f2fe;
-    color: #0369a1;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 6px;
+.form-container{
+    width:90%;
+    max-width:750px;
+    margin:40px auto;
 }
 
-.card-conteudo {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.voltar,
+.voltar:visited{
+    color:black;
+    text-decoration:none;
+    font-weight:500;
 }
 
-.card-conteudo p {
-    font-size: 0.9rem;
-    color: #475569;
-    display: flex;
-    align-items: center;
+.info-box{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:20px;
+    padding:25px;
+    margin-top:20px;
 }
 
-.card-conteudo i {
-    width: 25px;
-    display: inline-block;
-    font-style: normal;
+.form-box{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:20px;
+    padding:30px;
+    margin-top:20px;
 }
 
-.card-conteudo a {
-    color: #00824A;
-    text-decoration: none;
+.form-box h2{
+    margin-bottom:10px;
 }
 
-/* Mapeamento de Ícones Automático por CSS (Injeção de Emojis) */
-.card-conteudo p:nth-child(1) i::before { content: "🪪"; } /* CNPJ */
-.card-conteudo p:nth-child(2) i::before { content: "✉️"; } /* Email */
-.card-conteudo p:nth-child(3) i::before { content: "📞"; } /* Telefone */
-.card-conteudo p:nth-child(4) i::before { content: "📍"; } /* Endereço */
-.card-conteudo p:nth-child(5) i::before { content: "🌐"; } /* Website */
-.card-conteudo p .contato-icon::before { content: "👤"; }  /* Contato */
-
-.status-estagio {
-    margin-top: 5px;
-    color: #1e40af !important;
-    background: #eff6ff;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-weight: 600;
+.form-box p{
+    color:#666;
+    margin-bottom:20px;
 }
 
-.card-conteudo p .check-icon::before { content: "✅"; }
-
-.card-footer {
-    margin-top: auto;
-    padding-top: 15px;
-    display: flex;
-    justify-content: flex-end;
+.form-box label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:8px;
+    font-weight:500;
 }
 
-.vagas-count {
-    background: #f8fafc;
-    border: 1px solid #cbd5e1;
-    color: #334155;
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 6px;
+.form-box input,
+.form-box textarea{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #ddd;
+    border-radius:20px;
+    margin-bottom:15px;
+    font-size:15px;
+}
+
+.form-box textarea{
+    resize:none;
+    height:120px;
+}
+
+.checkbox-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+    margin-bottom:25px;
+}
+
+.checkbox-area input{
+    width:18px;
+    height:18px;
+    margin:0;
+}
+
+.checkbox-area label{
+    margin:0;
+}
+
+.botoes-form{
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+    margin-top:30px;
+}
+
+.btn-cancelar{
+    text-decoration:none;
+    color:black;
+    border:1px solid #ccc;
+    padding:12px 25px;
+    border-radius:25px;
+}
+
+.btn-salvar{
+    background:black;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.login-box{
+    width:420px;
+    margin:100px auto;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+}
+
+.modal-sucesso{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:black;
+    color:white;
+    padding:40px;
+    border-radius:30px;
+    text-align:center;
+    z-index:999;
+}
+.admin-container{
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+}
+
+.topo-admin{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:35px;
+}
+
+.topo-admin h1{
+    margin:0;
+    font-size:60px;
+}
+
+.voltaradm{
+    background:white;
+    color:black;
+    text-decoration:none;
+    border:1px solid #ddd;
+    border-radius:25px;
+    padding:12px 22px;
+}
+
+.admin-section{
+    margin-top:50px;
+}
+
+.admin-section h2{
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+.empresa-card-admin{
+    background:white;
+    border:1px solid #e7e7e7;
+    border-radius:28px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.05);
+    transition:0.2s;
+}
+
+.empresa-card-admin:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.empresa-card-admin h3{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.empresa-card-admin p{
+    color:#666;
+    margin-bottom:12px;
+}
+
+.badge-parceria{
+    display:inline-block;
+    background:#f1f1f1;
+    color:#555;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.botoes-admin{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.botoes-admin form{
+    margin:0;
+}
+
+.btn-preto{
+    display:inline-block;
+    background:black;
+    color:white;
+    text-decoration:none;
+    padding:14px 35px;
+    border-radius:30px;
+    margin-bottom:35px;
+}
+
+.btn-branco{
+    background:white;
+    color:black;
+    border:1px solid #ddd;
+    text-decoration:none;
+    padding:10px 25px;
+    border-radius:25px;
+}
+
+.btn-verde{
+    background:#3ab54a;
+    color:white;
+    border:none;
+    padding:10px 25px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.btn-vermelho{
+    background:#ff3b3b;
+    color:white;
+    border:none;
+    padding:10px 25px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.texto-vazio{
+    color:#666;
+    margin-top:15px;
 }

@@ -1,6 +1,133 @@
-<h1>Área do Administrador</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
 
-<a href="/pendentes">Empresas Pendentes</a><br>
-<a href="/aprovadas">Empresas Aprovadas</a><br>
-<a href="/cadastroempresa">Cadastrar Empresa</a><br>
-<a href="/">Voltar</a>
+<div class="admin-container">
+
+    <div class="topo-admin">
+
+        <h1>Painel Administrativo</h1>
+
+        <a href="/" class="voltaradm">
+            ← Voltar
+        </a>
+
+    </div>
+
+    <a href="/cadastroempresaadmin" class="btn-preto">
+        Cadastrar Manualmente
+    </a>
+
+    <div class="admin-section">
+
+        <h2>Empresas Pendentes</h2>
+
+        {{#if pendentes.length}}
+
+            {{#each pendentes}}
+
+            <div class="empresa-card-admin">
+
+                <h3>{{nome}}</h3>
+
+                <p>{{email}}</p>
+
+                <span class="badge-parceria">
+                    {{tipo_parceria}}
+                </span>
+
+                <div class="botoes-admin">
+
+                    <form action="/empresa/aprovar/{{id}}" method="POST">
+                        <button class="btn-verde">
+                            Aprovar
+                        </button>
+                    </form>
+
+                    <a
+                        href="/empresa/editar/{{id}}"
+                        class="btn-branco"
+                    >
+                        Editar
+                    </a>
+
+                    <form action="/empresa/deletar/{{id}}" method="POST">
+                        <button class="btn-vermelho">
+                            Excluir
+                        </button>
+                    </form>
+
+                </div>
+
+            </div>
+
+            {{/each}}
+
+        {{else}}
+
+            <p class="texto-vazio">
+                Nenhuma empresa pendente.
+            </p>
+
+        {{/if}}
+
+    </div>
+
+    <div class="admin-section">
+
+        <h2>Empresas Aprovadas</h2>
+
+        {{#if aprovadas.length}}
+
+            {{#each aprovadas}}
+
+            <div class="empresa-card-admin">
+
+                <h3>{{nome}}</h3>
+
+                <p>{{email}}</p>
+
+                <span class="badge-parceria">
+                    {{tipo_parceria}}
+                </span>
+
+                <div class="botoes-admin">
+
+                    <a
+                        href="/empresa/editar/{{id}}"
+                        class="btn-branco"
+                    >
+                        Editar
+                    </a>
+
+                    <form action="/empresa/deletar/{{id}}" method="POST">
+                        <button class="btn-vermelho">
+                            Excluir
+                        </button>
+                    </form>
+
+                </div>
+
+            </div>
+
+            {{/each}}
+
+        {{else}}
+
+            <p class="texto-vazio">
+                Nenhuma empresa aprovada.
+            </p>
+
+        {{/if}}
+
+    </div>
+
+</div>
+
+</body>
+</html>

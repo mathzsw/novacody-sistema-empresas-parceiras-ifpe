@@ -1,43 +1,89 @@
-<h1> Solicitar Cadastro de Empresa</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitar Cadastro</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
 
-<form action="/empresa" method="POST">
+<div class="container-form">
 
-    Nome:
-    <input type="text" name="nome"><br><br>
+    <a href="/" class="voltar">
+        ← Voltar
+    </a>
 
-    CNPJ:
-    <input type="text" name="cnpj"><br><br>
+    <div class="info-box">
+        <h3>Solicitação de Cadastro</h3>
 
-    Email:
-    <input type="text" name="email"><br><br>
+        <p>
+            Preencha o formulário abaixo para solicitar o cadastro da sua empresa
+            como parceira do IFPE. Após o envio, sua solicitação será analisada
+            pela equipe administrativa.
+        </p>
+    </div>
 
-    Telefone:
-    <input type="text" name="telefone"><br><br>
+    <div class="form-box">
 
-    Contato:
-    <input type="text" name="contato"><br><br>
+        <h2>Solicitar Cadastro de Empresa Parceira</h2>
 
-    Endereço:
-    <input type="text" name="endereco"><br><br>
+        <p>
+            Preencha os dados da sua empresa para solicitar parceria com o IFPE
+        </p>
 
-    Tipo de parceria:
-    <input type="text" name="tipo_parceria"><br><br>
+        <form action="/empresa" method="POST">
 
-    Website:
-    <input type="text" name="website"><br><br>
+            <label>Nome da Empresa *</label>
+            <input type="text" name="nome">
 
-    Quantidade de vagas:
-    <input type="number" name="quantidade_vagas"><br><br>
+            <label>CNPJ *</label>
+            <input type="text" name="cnpj">
 
-    Descrição:
-    <textarea name="descricao_vagas"></textarea><br><br>
+            <label>E-mail *</label>
+            <input type="text" name="email">
 
-    Aceita estagiário:
-    <input type="checkbox" name="aceita_estagiario"><br><br>
+            <label>Telefone *</label>
+            <input type="text" name="telefone">
 
-    Observações:
-    <textarea name="observacoes"></textarea><br><br>
+            <label>Pessoa do Contato *</label>
+            <input type="text" name="contato">
 
-    <button type="submit">Cadastrar</button>
+            <label>Endereço *</label>
+            <input type="text" name="endereco">
 
-</form>
+            <h3>Informações de Parceria</h3>
+
+            <label>Tipo de Parceria *</label>
+            <input type="text" name="tipo_parceria">
+
+            <label>Website</label>
+            <input type="text" name="website">
+
+            <label>Vagas Disponíveis</label>
+            <input type="number" name="quantidade_vagas">
+
+            <div class="checkbox-area">
+                <input type="checkbox" name="aceita_estagiario">
+                <span>Aceita Estagiários</span>
+            </div>
+
+            <label>Observações</label>
+            <textarea name="observacoes"></textarea>
+
+            <div class="botoes">
+                <a href="/" class="btn-cancelar">
+                    Cancelar
+                </a>
+                <button type="submit">
+                    Cadastrar Empresa
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
