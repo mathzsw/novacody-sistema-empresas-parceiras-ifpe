@@ -25,7 +25,8 @@ O projeto tem como objetivo desenvolver um sistema web para cadastro e gerenciam
 - JavaScript
 - Node.js
 - Express
-- MySQL
+- Express Handlebars
+- SQLite 3
 
 ## Repositório
 Desenvolvido utilizando GitHub, GitHub Projects e metodologia Scrum.

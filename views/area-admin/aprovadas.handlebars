@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Empresas Pendentes</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="admin-container">
+
+    <div class="topo-admin">
+        <div>
+            <h1>Painel Administrativo</h1>
+            <p class="admin-subtitulo">
+                Bem-vindo(a), Administrador IFPE
+            </p>
+        </div>
+
+        <a href="/" class="voltaradm">
+            ← Voltar
+        </a>
+
+    </div>
+
+    <hr class="linha-admin">
+
+    <a href="/cadastroempresaadmin" class="btn-cadastrar-admin">
+        Cadastrar Manualmente
+    </a>
+
+    <div class="tabs-admin">
+        <a href="/area-admin/pendentes" class="tab-admin">
+            Pendentes
+        </a>
+
+        <a href="/area-admin/aprovadas" class="tab-admin ativa">
+            Aprovadas
+        </a>
+    </div>
+
+    <div class="info-box">
+        <h2>Empresas Pendentes</h3>
+        <p>Gerencie as empresas pendentes parceiras cadastradas.</p>
+    </div>
+
+    <div class="admin-section">
+        <br></br>
+        <h2>Empresas Aprovadas</h2>
+
+        <p class="contador-admin">
+            {{aprovadas.length}} empresa(s) encontrada(s)
+        </p>
+
+        {{#if aprovadas.length}}
+
+            {{#each aprovadas}}
+
+            <div class="empresa-card-admin">
+
+                <h3>{{nome}}</h3>
+
+                <p>{{email}}</p>
+
+                <span class="badge-parceria">
+                    {{tipo_parceria}}
+                </span>
+
+                <div class="botoes-admin">
+
+                    <a
+                        href="/empresa/editar/{{id}}"
+                        class="btn-branco"
+                    >
+                        Editar
+                    </a>
+
+                    <form action="/empresa/deletar/{{id}}" method="POST">
+                        <button class="btn-vermelho">
+                            Excluir
+                        </button>
+                    </form>
+
+                </div>
+
+            </div>
+
+            {{/each}}
+
+        {{else}}
+
+            <p class="texto-vazio">
+                Nenhuma empresa aprovada.
+            </p>
+
+        {{/if}}
+
+    </div>
+
+</div>
