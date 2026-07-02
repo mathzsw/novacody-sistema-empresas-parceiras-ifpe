@@ -46,8 +46,9 @@ O projeto tem como objetivo desenvolver um sistema web para cadastro e gerenciam
 ## Como executar
 
 ```bash
-npm install
-node servidor.js
+npm install express express-handlebars sequelize sqlite3
+npm install method-override  
+node --watch servidor.js
 ```
 
 Acesse no navegador:
