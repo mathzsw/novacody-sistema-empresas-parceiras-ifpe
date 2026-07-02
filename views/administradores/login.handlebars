@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Administradores</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="login-page">
+
+<div class="login-card">
+
+    <a href="/" class="voltar">
+        ← Voltar
+    </a>
+
+    <div class="login-icon">
+        <img src="/img/iconelogin.png" alt="Área Administrativa">
+    </div>
+
+    <h1>Área Administrativa</h1>
+
+    <form action="/area-admin">
+
+        <label>Usuário:</label>
+        <input
+            type="text"
+            name="usuario"
+            placeholder="Digite seu usuário"
+            required
+        >
+
+        <label>Senha:</label>
+        <input
+            type="password"
+            name="senha"
+            placeholder="Digite sua senha"
+            required
+        >
+
+        <button type="submit" class="btn-login">
+            Entrar
+        </button>
+
+    </form>
+
+    <hr>
+
+    <p class="texto-login">
+        Não é administrador?
+    </p>
+
+    <a href="/usuarios/cadastrar" class="btn-cadastro-admin">
+        Cadastrar administrador
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -3,7 +3,8 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 
 const sequelize = require('./config/bd');
-const Empresa = require('./models/Empresa');
+const Empresa = require('./models/empresa');
+const Admin = require('./models/admin');
 const { Op } = require('sequelize');
 
 const app = express();
@@ -28,6 +29,8 @@ sequelize.sync()
     .catch((erro) => {
         console.log('Erro ao conectar:', erro);
     });
+
+//CRUD EMPRESAS - MATHEUS
 
 app.get('/', async (req, res) => {
 
@@ -80,6 +83,10 @@ app.get('/', async (req, res) => {
         emprego: tipo === 'Emprego' ? 'selected' : '',
         projeto: tipo === 'Projeto de Extensão' ? 'selected' : ''
     });
+});
+
+app.get('/loginadmin', (req, res) => {
+    res.render('administradores/login');
 });
 
 app.get('/area-admin', (req, res) => {
@@ -278,6 +285,127 @@ app.post('/empresa/deletar/:id', async (req, res) => {
     } else {
         res.redirect('/area-admin/aprovadas');
     }
+});
+
+// CRUD ADMINS - THAIS
+
+
+
+app.get('/usuarios', async (req, res) => {
+   try {
+
+
+       const administradores = await Admin.findAll();
+
+
+       res.render('administradores/index', {
+           administradores
+       });
+
+
+   } catch (erro) {
+       console.log(erro);
+       res.send('Erro ao carregar administradores');
+   }
+});
+
+
+app.get('/usuarios/cadastrar', (req, res) => {
+   res.render('administradores/cadastrar');
+});
+
+
+app.post('/usuarios', async (req, res) => {
+   try {
+
+
+       await Admin.create({
+           nome: req.body.nome,
+           email: req.body.email,
+           senha: req.body.senha,
+           tipo: req.body.tipo
+       });
+
+
+       res.redirect('/usuarios');
+
+
+   } catch (erro) {
+       console.log(erro);
+       res.send('Erro ao cadastrar administrador');
+   }
+});
+
+
+app.get('/usuarios/editar/:id', async (req, res) => {
+   try {
+
+
+       const administrador = await Admin.findByPk(req.params.id);
+
+
+       if (!administrador) {
+           return res.send('Administrador não encontrado');
+       }
+
+
+       res.render('administradores/editar', {
+           administrador
+       });
+
+
+   } catch (erro) {
+       console.log(erro);
+       res.send('Erro ao carregar administrador');
+   }
+});
+
+
+app.post('/usuarios/editar/:id', async (req, res) => {
+   try {
+
+
+       const administrador = await Admin.findByPk(req.params.id);
+
+
+       if (!administrador) {
+           return res.send('Administrador não encontrado');
+       }
+
+
+       await administrador.update({
+           nome: req.body.nome,
+           email: req.body.email,
+           senha: req.body.senha,
+           tipo: req.body.tipo
+       });
+
+
+       res.redirect('/usuarios');
+
+
+   } catch (erro) {
+       console.log(erro);
+       res.send('Erro ao editar administrador');
+   }
+});
+
+
+app.post('/usuarios/deletar/:id', async (req, res) => {
+
+
+   const administrador = await Admin.findByPk(req.params.id);
+
+
+   if (!administrador) {
+       return res.send('Administrador não encontrado');
+   }
+
+
+   await administrador.destroy();
+
+
+   res.redirect('/usuarios');
 });
 
 app.listen(3000, () => {

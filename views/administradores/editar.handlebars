@@ -1,12 +1,87 @@
-<!--
-TELA DE EDIÇÃO DE USUÁRIOS
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Administrador</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
 
-Permite alterar:
-- Nome
-- Email
-- Senha
-- Tipo
+<div class="form-container">
 
-Ao salvar:
-POST /usuarios/editar/:id
--->
+    <a href="/usuarios" class="voltar">
+        ← Voltar
+    </a>
+    
+    <div class="form-box">
+
+        <h2>Editar Administrador</h2>
+
+        <p>
+            Atualize os dados do administrador.
+        </p>
+
+    </div>
+
+    <div class="form-box">
+
+        <form action="/usuarios/editar/{{administrador.id}}" method="POST">
+
+            <label>Nome</label>
+
+            <input
+                type="text"
+                name="nome"
+                value="{{administrador.nome}}"
+                required
+            >
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                name="email"
+                value="{{administrador.email}}"
+                required
+            >
+
+            <label>Senha</label>
+
+            <input
+                type="password"
+                name="senha"
+                value="{{administrador.senha}}"
+                required
+            >
+
+            <label>Tipo</label>
+
+            <input
+                type="text"
+                name="tipo"
+                value="{{administrador.tipo}}"
+                required
+            >
+
+            <div class="botoes-form">
+
+                <a href="/usuarios" class="btn-cancelar">
+                    Cancelar
+                </a>
+
+                <button
+                    type="submit"
+                    class="btn-salvar">
+                    Salvar Alterações
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

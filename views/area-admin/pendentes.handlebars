@@ -23,35 +23,50 @@
         </a>
     </div>
 
-
     <hr class="linha-admin">
 
-    <a href="/cadastroempresaadmin" class="btn-cadastrar-admin">
-        Cadastrar Manualmente
+<div class="acoes-admin">
+
+    <a href="/cadastroempresaadmin" class="btn-admin-topo">
+        Cadastrar Empresa
     </a>
 
-    <div class="tabs-admin">
+    <a href="/usuarios" class="btn-admin-topo">
+        Gerenciar Administradores
+    </a>
 
-        <a href="/area-admin/pendentes"
-           class="tab-admin ativa">
-           Pendentes
-        </a>
+</div>
 
-        <a href="/area-admin/aprovadas"
-           class="tab-admin">
-           Aprovadas
-        </a>
+<hr class="linha-admin">
 
-    </div>
+<div class="tabs-admin">
 
-    <div class="info-box">
-        <h2>Empresas Pendentes</h3>
-        <p>Gerencie as empresas pendentes parceiras cadastradas.</p>
-    </div>
+    <a href="/area-admin/pendentes"
+       class="tab-admin ativa">
+       Pendentes
+    </a>
+
+    <a href="/area-admin/aprovadas"
+       class="tab-admin">
+       Aprovadas
+    </a>
+
+</div>
+
+<hr class="linha-admin">
 
     <div class="admin-section">
-        <br></br>
         <h2>Empresas Pendentes</h2>
+
+        <p>Gerencie as Empresas Parceiras Pendentes Cadastradas.</p>
+
+        <hr class="linha-admin">
+
+        <p class="contador-admin">
+            {{pendentes.length}} empresa(s) encontrada(s)
+        </p>
+
+        <hr class="linha-admin">
 
         {{#if pendentes.length}}
 
@@ -94,10 +109,11 @@
         {{else}}
 
             <p class="texto-vazio">
-                Nenhuma empresa pendente.
+                Nenhuma empresa pendetes.
             </p>
 
         {{/if}}
+
 
     </div>
 

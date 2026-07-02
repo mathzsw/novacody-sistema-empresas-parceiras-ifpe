@@ -25,32 +25,48 @@
 
     <hr class="linha-admin">
 
-    <a href="/cadastroempresaadmin" class="btn-cadastrar-admin">
-        Cadastrar Manualmente
+    <div class="acoes-admin">
+
+    <a href="/cadastroempresaadmin" class="btn-admin-topo">
+        Cadastrar Empresa
     </a>
 
-    <div class="tabs-admin">
-        <a href="/area-admin/pendentes" class="tab-admin">
-            Pendentes
-        </a>
+    <a href="/usuarios" class="btn-admin-topo">
+        Gerenciar Administradores
+    </a>
 
-        <a href="/area-admin/aprovadas" class="tab-admin ativa">
-            Aprovadas
-        </a>
-    </div>
+</div>
 
-    <div class="info-box">
-        <h2>Empresas Pendentes</h3>
-        <p>Gerencie as empresas pendentes parceiras cadastradas.</p>
-    </div>
+<hr class="linha-admin">
+
+<div class="tabs-admin">
+
+    <a href="/area-admin/pendentes"
+       class="tab-admin">
+       Pendentes
+    </a>
+
+    <a href="/area-admin/aprovadas"
+       class="tab-admin ativa">
+       Aprovadas
+    </a>
+
+</div>
+
+<hr class="linha-admin">
 
     <div class="admin-section">
-        <br></br>
         <h2>Empresas Aprovadas</h2>
+
+        <p>Gerencie as Empresas Parceiras Aprovadas Cadastradas.</p>
+
+        <hr class="linha-admin">
 
         <p class="contador-admin">
             {{aprovadas.length}} empresa(s) encontrada(s)
         </p>
+
+        <hr class="linha-admin">
 
         {{#if aprovadas.length}}
 

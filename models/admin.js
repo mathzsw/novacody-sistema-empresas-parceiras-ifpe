@@ -1,42 +1,27 @@
-/*
-CRUD DE USUÁRIOS - H7
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/bd');
 
-Modelo Usuario criado utilizando:
-- Node.js
-- Express
-- Sequelize
-- SQLite3
+const Admin = sequelize.define('Admin', {
+    nome: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
+    senha: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    tipo: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+}, {
+    tableName: 'admin',
+    timestamps: false
+});
 
-Campos:
-- nome
-- email
-- senha
-- tipo
-
-Observação:
-Não existe login nem autenticação nesta entrega.
-Os usuários servem apenas para demonstrar as operações de CRUD
-solicitadas na disciplina.
-colocar no servidor.js rotas: 
-
-GET  /usuarios
-Mostra a lista de usuários.
-
-GET  /usuarios/cadastrar
-Abre o formulário de cadastro.
-
-POST /usuarios
-Salva um novo usuário.
-
-GET  /usuarios/editar/:id
-Abre a tela de edição.
-
-POST /usuarios/editar/:id
-Atualiza os dados do usuário.
-
-POST /usuarios/deletar/:id
-Exclui um usuário.
-
-Observação:
-Não há login nem controle de acesso.
-*/
+module.exports = Admin;

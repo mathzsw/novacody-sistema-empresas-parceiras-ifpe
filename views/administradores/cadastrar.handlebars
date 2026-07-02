@@ -1,14 +1,83 @@
-<!--
-TELA DE CADASTRO DE USUÁRIOS
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Administrador</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
 
-Campos:
-- Nome
-- Email
-- Senha
-- Tipo
+<div class="form-container">
 
-Ao enviar o formulário:
-POST /usuarios
--->
+    <a href="/usuarios" class="voltar">
+        ← Voltar
+    </a>
 
-MUDANÇA
+    <div class="form-box">
+
+        <h2>Novo Administrador</h2>
+
+        <p>
+            Preencha os dados do novo administrador do sistema.
+        </p>
+
+    </div>
+
+    <div class="form-box">
+
+        <form action="/usuarios" method="POST">
+
+            <label>Nome</label>
+
+            <input
+                type="text"
+                name="nome"
+                required
+            >
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                name="email"
+                required
+            >
+
+            <label>Senha</label>
+
+            <input
+                type="password"
+                name="senha"
+                required
+            >
+
+            <label>Tipo</label>
+
+            <input
+                type="text"
+                name="tipo"
+                required
+            >
+
+            <div class="botoes-form">
+
+                <a href="/usuarios" class="btn-cancelar">
+                    Cancelar
+                </a>
+
+                <button
+                    type="submit"
+                    class="btn-salvar">
+                    Cadastrar
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
