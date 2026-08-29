@@ -1,4 +1,4 @@
-# Sistema de Cadastro de Empresas Parceiras
+# Novacody — Sistema de Cadastro de Empresas Parceiras
 
 Projeto desenvolvido para a disciplina Projeto e Prática 2 (PP2) do Instituto Federal de Pernambuco (IFPE) – Campus Jaboatão dos Guararapes.
 
