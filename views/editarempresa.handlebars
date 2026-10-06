@@ -1,128 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Editar Empresa</title>
     <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<div class="form-container">
+    <main class="form-container">
 
-    <a href="/area-admin" class="voltar">
-        ← Voltar
-    </a>
-    
-    <div class="form-box">
-        <h2>Editar Empresa</h3>
-        <p>
-            Atualize os Dados da Empresa Parceira do IFPE.
-        </p>
-    </div>
+        <a href="/area-admin" class="voltar">
+            ← Voltar
+        </a>
 
-    <div class="form-box">
+        <div class="form-box">
 
-        <h3>Informações Básicas</h2>
+            <h1>Editar Empresa</h1>
 
-        <form action="/empresa/editar/{{empresa.id}}" method="POST">
+            <p>
+                Atualize os Dados da Empresa Parceira do IFPE.
+            </p>
 
-            <label>Nome da Empresa/Projeto *</label>
-            <input
-                type="text"
-                name="nome"
-                value="{{empresa.nome}}"
-                required
-            >
+        </div>
 
-            <label>CNPJ *</label>
-            <input
-                type="text"
-                name="cnpj"
-                value="{{empresa.cnpj}}"
-            >
+        <div class="form-box">
 
-            <label>E-mail *</label>
-            <input
-                type="email"
-                name="email"
-                value="{{empresa.email}}"
-            >
+            <h2>Informações Básicas</h2>
 
-            <label>Telefone *</label>
-            <input
-                type="text"
-                name="telefone"
-                value="{{empresa.telefone}}"
-            >
+            <form action="/empresa/editar/{{empresa.id}}" method="POST">
 
-            <label>Pessoa do Contato *</label>
-            <input
-                type="text"
-                name="contato"
-                value="{{empresa.contato}}"
-            >
+                <label>Nome da Empresa/Projeto *</label>
+                <input
+                    type="text"
+                    name="nome"
+                    value="{{empresa.nome}}"
+                    required
+                >
 
-            <label>Endereço *</label>
-            <input
-                type="text"
-                name="endereco"
-                value="{{empresa.endereco}}"
-            >
+                <label>CNPJ *</label>
+                <input
+                    type="text"
+                    name="cnpj"
+                    value="{{empresa.cnpj}}"
+                >
 
-            <br></br>
+                <label>E-mail *</label>
+                <input
+                    type="email"
+                    name="email"
+                    value="{{empresa.email}}"
+                >
 
-            <h2>Informações de Parceria</h2>
+                <label>Telefone *</label>
+                <input
+                    type="text"
+                    name="telefone"
+                    value="{{empresa.telefone}}"
+                >
 
-            <label>Tipo de Parceria *</label>
-            <input
-                type="text"
-                name="tipo_parceria"
-                value="{{empresa.tipo_parceria}}"
-            >
+                <label>Pessoa do Contato *</label>
+                <input
+                    type="text"
+                    name="contato"
+                    value="{{empresa.contato}}"
+                >
 
-            <label>Website</label>
-            <input
-                type="text"
-                name="website"
-                value="{{empresa.website}}"
-            >
+                <label>Endereço *</label>
+                <input
+                    type="text"
+                    name="endereco"
+                    value="{{empresa.endereco}}"
+                >
 
-            <label>Vagas Disponíveis</label>
-            <input
-                type="number"
-                name="quantidade_vagas"
-                value="{{empresa.quantidade_vagas}}"
-            >
+                <br>
 
-            <div class="checkbox-area">
-                <input type="checkbox" name="aceita_estagiario">
-                <span>Aceita Estagiários</span>
-            </div>
+                <h2>Informações de Parceria</h2>
 
-            <label>Observações</label>
+                <label>Tipo de Parceria *</label>
+                <input
+                    type="text"
+                    name="tipo_parceria"
+                    value="{{empresa.tipo_parceria}}"
+                >
 
-            <textarea
-                name="observacoes"
-            >{{empresa.observacoes}}</textarea>
+                <label>Website</label>
+                <input
+                    type="text"
+                    name="website"
+                    value="{{empresa.website}}"
+                >
 
-            <div class="botoes-form">
+                <label>Vagas Disponíveis</label>
+                <input
+                    type="number"
+                    name="quantidade_vagas"
+                    value="{{empresa.quantidade_vagas}}"
+                >
 
-                <a href="/area-admin" class="btn-cancelar">
-                    Cancelar
-                </a>
+                <div class="checkbox-area">
 
-                <button type="submit" class="btn-salvar">
-                    Salvar Alterações
-                </button>
+                    <input
+                        type="checkbox"
+                        name="aceita_estagiario"
+                    >
 
-            </div>
+                    <span>Aceita Estagiários</span>
 
-        </form>
+                </div>
 
-    </div>
+                <label>Observações</label>
 
-</div>
+                <textarea name="observacoes">{{empresa.observacoes}}</textarea>
+
+                <div class="botoes-form">
+
+                    <a href="/area-admin" class="btn-cancelar">
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-salvar"
+                    >
+                        Salvar Alterações
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
 
 </body>
 </html>
