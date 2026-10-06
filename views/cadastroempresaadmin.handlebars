@@ -25,22 +25,22 @@
         <form action="/empresa/admin" method="POST">
 
             <label>Nome da Empresa/Projeto *</label>
-            <input type="text" name="nome">
+            <input type="text" name="nome" autocomplete="organization">
 
             <label>CNPJ *</label>
             <input type="text" name="cnpj">
 
             <label>E-mail *</label>
-            <input type="text" name="email">
+            <input type="text" name="email" type="email" autocomplete="email">
 
             <label>Telefone *</label>
-            <input type="text" name="telefone">
+            <input type="text" name="telefone" type="tel" autocomplete="tel">
 
             <label>Pessoa do Contato *</label>
-            <input type="text" name="contato">
+            <input type="text" name="contato" autocomplete="name">
 
             <label>Endereço *</label>
-            <input type="text" name="endereco">
+            <input type="text" name="endereco" autocomplete="street-address">
 
             <br></br>
 
@@ -50,7 +50,7 @@
             <input type="text" name="tipo_parceria">
 
             <label>Website</label>
-            <input type="text" name="website">
+            <input type="text" name="website" type="url" autocomplete="url">
 
             <label>Vagas Disponíveis</label>
             <input type="number" name="quantidade_vagas">
