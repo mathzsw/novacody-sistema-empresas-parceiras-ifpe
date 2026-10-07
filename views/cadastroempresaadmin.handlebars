@@ -1,82 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Cadastro Empresa</title>
     <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<div class="form-container">
+    <main class="form-container">
 
-    <a href="/area-admin" class="voltaradm">
-        ← Voltar
-    </a>
+        <a href="/area-admin" class="voltaradm">
+            ← Voltar
+        </a>
 
-    <div class="form-box">
+        <div class="form-box">
 
-        <h2>Cadastro de Empresa Parceira</h2>
+            <h1>Cadastro de Empresa Parceira</h1>
 
-        <p>
-            Preencha os Dados da Empresa para Parceria com o IFPE
-        </p>
+            <p>
+                Preencha os Dados da Empresa para Parceria com o IFPE
+            </p>
 
-        <form action="/empresa/admin" method="POST">
+            <form action="/empresa/admin" method="POST">
 
-            <label>Nome da Empresa/Projeto *</label>
-            <input type="text" name="nome" autocomplete="organization">
+                <label>Nome da Empresa/Projeto *</label>
+                <input
+                    type="text"
+                    name="nome"
+                >
 
-            <label>CNPJ *</label>
-            <input type="text" name="cnpj">
+                <label>CNPJ *</label>
+                <input
+                    type="text"
+                    name="cnpj"
+                >
 
-            <label>E-mail *</label>
-            <input type="text" name="email" type="email" autocomplete="email">
+                <label>E-mail *</label>
+                <input
+                    type="text"
+                    name="email"
+                >
 
-            <label>Telefone *</label>
-            <input type="text" name="telefone" type="tel" autocomplete="tel">
+                <label>Telefone *</label>
+                <input
+                    type="text"
+                    name="telefone"
+                >
 
-            <label>Pessoa do Contato *</label>
-            <input type="text" name="contato" autocomplete="name">
+                <label>Pessoa do Contato *</label>
+                <input
+                    type="text"
+                    name="contato"
+                >
 
-            <label>Endereço *</label>
-            <input type="text" name="endereco" autocomplete="street-address">
+                <label>Endereço *</label>
+                <input
+                    type="text"
+                    name="endereco"
+                >
 
-            <br></br>
+                <br>
 
-            <h3>Informações de Parceria</h3>
+                <h2>Informações de Parceria</h2>
 
-            <label>Tipo de Parceria *</label>
-            <input type="text" name="tipo_parceria">
+                <label>Tipo de Parceria *</label>
+                <input
+                    type="text"
+                    name="tipo_parceria"
+                >
 
-            <label>Website</label>
-            <input type="text" name="website" type="url" autocomplete="url">
+                <label>Website</label>
+                <input
+                    type="text"
+                    name="website"
+                >
 
-            <label>Vagas Disponíveis</label>
-            <input type="number" name="quantidade_vagas">
+                <label>Vagas Disponíveis</label>
+                <input
+                    type="number"
+                    name="quantidade_vagas"
+                >
 
-            <div class="checkbox-area">
-                <input type="checkbox" name="aceita_estagiario">
-                <span>Aceita Estagiários</span>
-            </div>
+                <div class="checkbox-area">
 
-            <label>Observações</label>
-            <textarea name="observacoes"></textarea>
+                    <input
+                        type="checkbox"
+                        name="aceita_estagiario"
+                    >
 
-            <div class="botoes">
-                <a href="/" class="btn-cancelar">
-                    Cancelar
-                </a>
-                <button type="submit" class="btn-cadastro">
-                    Cadastrar Empresa
-                </button>
-            </div>
+                    <span>Aceita Estagiários</span>
 
-        </form>
+                </div>
 
-    </div>
+                <label>Observações</label>
 
-</div>
+                <textarea name="observacoes"></textarea>
+
+                <div class="botoes">
+
+                    <a href="/" class="btn-cancelar">
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-cadastro"
+                    >
+                        Cadastrar Empresa
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
 
 </body>
 </html>

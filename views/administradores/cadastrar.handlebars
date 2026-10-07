@@ -1,87 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Administrador</title>
     <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<div class="form-container">
+    <div class="form-container">
 
-    <a href="/loginadmin" class="voltar">
-        ← Voltar
-    </a>
+        <a href="/loginadmin" class="voltar">
+            ← Voltar
+        </a>
 
-    <div class="form-box">
+        <div class="form-box">
 
-        <h2>Novo Administrador</h2>
+            <h1>Novo Administrador</h1>
 
-        <p>
-            Preencha os dados do novo administrador do sistema.
-        </p>
+            <p>
+                Preencha os dados do novo administrador do sistema.
+            </p>
+
+        </div>
+
+        <div class="form-box">
+
+            <form action="/usuarios" method="POST">
+
+                <label>Nome</label>
+
+                <input
+                    type="text"
+                    name="nome"
+                    autocomplete="name"
+                    required
+                >
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                >
+
+                <label>Senha</label>
+
+                <input
+                    type="password"
+                    name="senha"
+                    autocomplete="new-password"
+                    required
+                >
+
+                <label>Tipo</label>
+
+                <input
+                    type="text"
+                    name="tipo"
+                    required
+                >
+
+                <div class="botoes-form">
+
+                    <a href="/loginadmin" class="btn-cancelar">
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-salvar">
+                        Cadastrar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
 
     </div>
-
-    <div class="form-box">
-
-        <form action="/usuarios" method="POST">
-
-            <label>Nome</label>
-
-            <input
-                type="text"
-                name="nome"
-                autocomplete="name"
-                required
-            >
-
-            <label>Email</label>
-
-            <input
-                type="email"
-                name="email"
-                autocomplete="email"
-                required
-            >
-
-            <label>Senha</label>
-
-            <input
-                type="password"
-                name="senha"
-                autocomplete="new-password"
-                required
-            >
-
-            <label>Tipo</label>
-
-            <input
-                type="text"
-                name="tipo"
-                required
-            >
-
-            <div class="botoes-form">
-
-                <a href="/loginadmin" class="btn-cancelar">
-                    Cancelar
-                </a>
-
-                <button
-                    type="submit"
-                    class="btn-salvar">
-                    Cadastrar
-                </button>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
 
 </body>
 </html>
