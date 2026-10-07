@@ -43,8 +43,9 @@
         <form action="/" method="GET">
 
             <div class="barra-de-busca">
-
+                <label for="campo-busca" class="visually-hidden">Buscar empresas por nome, CNPJ ou email</label>
                 <input
+                    id="campo-busca"
                     type="text"
                     name="busca"
                     value="{{busca}}"
@@ -54,13 +55,13 @@
             </div>
 
             <div class="filtro-area">
-
-                <select name="tipo">
-                    <option value="">Todas</option>
-                    <option value="Estágio" {{estagio}}>Estágio</option>
-                    <option value="Emprego" {{emprego}}>Emprego</option>
-                    <option value="Projeto de Extensão" {{projeto}}>
-                        Projeto de Extensão
+            <label for="filtro-tipo" class="visually-hidden">Filtrar por tipo de parceria</label>
+            <select name="tipo" id="filtro-tipo">
+                <option value="">Todas</option>
+                <option value="Estágio" {{estagio}}>Estágio</option>
+                <option value="Emprego" {{emprego}}>Emprego</option>
+                <option value="Projeto de Extensão" {{projeto}}>
+                    Projeto de Extensão
                     </option>
                 </select>
 

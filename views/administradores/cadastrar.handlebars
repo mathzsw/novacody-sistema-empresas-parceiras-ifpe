@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="form-container">
+    <main class="form-container">
 
         <a href="/loginadmin" class="voltar">
             ← Voltar
@@ -30,38 +30,42 @@
 
             <form action="/usuarios" method="POST">
 
-                <label>Nome</label>
+                <label for="campo-nome">Nome</label>
 
                 <input
                     type="text"
                     name="nome"
+                    id="campo-nome"
                     autocomplete="name"
                     required
                 >
 
-                <label>Email</label>
+                <label for="campo-Email">Email</label>
 
                 <input
                     type="email"
                     name="email"
+                    id="campo-Email"
                     autocomplete="email"
                     required
                 >
 
-                <label>Senha</label>
+                <label for="campo-senha">Senha</label>
 
                 <input
                     type="password"
                     name="senha"
+                    id="campo-senha"
                     autocomplete="new-password"
                     required
                 >
 
-                <label>Tipo</label>
+                <label for="campo-tipo">Tipo</label>
 
                 <input
                     type="text"
                     name="tipo"
+                    id="campo-tipo"
                     required
                 >
 
@@ -81,9 +85,9 @@
 
             </form>
 
-        </div>
+        </main>
 
-    </div>
+    </main>
 
 </body>
 </html>

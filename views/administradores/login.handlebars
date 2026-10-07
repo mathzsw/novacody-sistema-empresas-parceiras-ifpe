@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Administradores</title>
     <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
     <link rel="stylesheet" href="/css/style.css">
@@ -9,7 +10,7 @@
 
 <body class="login-page">
 
-<div class="login-card">
+<main class="login-card">
 
     <a href="/" class="voltar">
         ← Voltar
@@ -23,16 +24,18 @@
 
     <form action="/area-admin">
 
-        <label>Usuário:</label>
+        <label for="campo-usuario">Usuário:</label>
         <input
+            id="campo-usuario"
             type="text"
             name="usuario"
             placeholder="Digite seu usuário"
             required
         >
 
-        <label>Senha:</label>
+        <label for="campo-senha">Senha:</label>
         <input
+            id="campo-senha"
             type="password"
             name="senha"
             placeholder="Digite sua senha"
@@ -55,7 +58,7 @@
         Cadastrar administrador
     </a>
 
-</div>
+</main>
 
 </body>
 </html>

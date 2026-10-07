@@ -26,62 +26,71 @@
 
             <form action="/empresa/admin" method="POST">
 
-                <label>Nome da Empresa/Projeto *</label>
+                <label for="campo-Nome-Empresa">Nome da Empresa/Projeto *</label>
                 <input
                     type="text"
                     name="nome"
+                    id="campo-Nome-Empresa"
                 >
 
-                <label>CNPJ *</label>
+                <label for="campo-CNPJ">CNPJ *</label>
                 <input
                     type="text"
                     name="cnpj"
+                    id="campo-CNPJ"
                 >
 
-                <label>E-mail *</label>
+                <label for="campo-E-mail">E-mail *</label>
                 <input
                     type="text"
                     name="email"
+                    id="campo-E-mail"
                 >
 
-                <label>Telefone *</label>
+                <label for="campo-Telefone">Telefone *</label>
                 <input
                     type="text"
                     name="telefone"
+                    id="campo-Telefone"
                 >
 
-                <label>Pessoa do Contato *</label>
+                <label for="campo-Contato">Pessoa do Contato *</label>
                 <input
                     type="text"
                     name="contato"
+                    id="campo-Contato"
                 >
 
-                <label>Endereço *</label>
+                <label for="campo-Endereco">Endereço *</label>
                 <input
                     type="text"
                     name="endereco"
+                    id="campo-Endereco"
                 >
 
                 <br>
 
                 <h2>Informações de Parceria</h2>
 
-                <label>Tipo de Parceria *</label>
+                <label for="campo-Tipo-Parceria">Tipo de Parceria *</label>
                 <input
                     type="text"
                     name="tipo_parceria"
+                    id="campo-Tipo-Parceria"
                 >
 
-                <label>Website</label>
+                <label for="campo-Website">Website</label>
                 <input
                     type="text"
                     name="website"
+                    id="campo-Website"
                 >
 
-                <label>Vagas Disponíveis</label>
+                <label for="campo-Vagas">Vagas Disponíveis</label>
                 <input
                     type="number"
                     name="quantidade_vagas"
+                    id="campo-Vagas"
                 >
 
                 <div class="checkbox-area">
@@ -89,15 +98,16 @@
                     <input
                         type="checkbox"
                         name="aceita_estagiario"
+                        id="campo-Aceita-Estagiarios"
                     >
 
-                    <span>Aceita Estagiários</span>
+                    <label for="campo-Aceita-Estagiarios">Aceita Estagiários</label>
 
                 </div>
 
-                <label>Observações</label>
+                <label for="campo-Observacoes">Observações</label>
 
-                <textarea name="observacoes"></textarea>
+                <textarea name="observacoes" id="campo-Observacoes"></textarea>
 
                 <div class="botoes">
 
