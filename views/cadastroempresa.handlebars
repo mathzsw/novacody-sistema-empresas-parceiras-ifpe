@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Solicitar Cadastro</title>
@@ -7,86 +7,94 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<div class="form-container">
+<body>
 
-    <a href="/" class="voltar">
-        ← Voltar
-    </a>
+    <main class="form-container">
 
-    <div class="form-box">
-        <h3>Solicitação de Cadastro</h3>
+        <a href="/" class="voltar">
+            ← Voltar
+        </a>
 
-        <p>
-            Preencha o formulário abaixo para solicitar o cadastro da sua empresa
-            como parceira do IFPE. Após o envio, sua solicitação será analisada
-            pela equipe administrativa.
-        </p>
-    </div>
+        <div class="form-box">
+            <h1>Solicitação de Cadastro</h1>
 
-    <div class="form-box">
+            <p>
+                Preencha o formulário abaixo para solicitar o cadastro da sua empresa
+                como parceira do IFPE. Após o envio, sua solicitação será analisada
+                pela equipe administrativa.
+            </p>
+        </div>
 
-        <h2>Solicitar Cadastro de Empresa Parceira</h2>
+        <div class="form-box">
 
-        <p>
-            Preencha os Preencha os Dados da Empresa para Parceria com o IFPE
-        </p>
+            <h2>Solicitar Cadastro de Empresa Parceira</h2>
 
-        <form action="/empresa" method="POST">
+            <p>
+                Preencha os Dados da Empresa para Parceria com o IFPE
+            </p>
 
-            <label>Nome da Empresa/Projeto *</label>
-            <input type="text" name="nome" autocomplete="organization">
+            <form action="/empresa" method="POST">
 
-            <label>CNPJ *</label>
-            <input type="text" name="cnpj">
+                
+                <label for="campo-Nome-Empresa">Nome da Empresa/Projeto *</label>
+                <input type="text" name="nome" id="campo-Nome-Empresa" autocomplete="organization">
 
-            <label>E-mail *</label>
-            <input type="email" name="email" autocomplete="email">
+                <label for="campo-CNPJ">CNPJ *</label>
+                <input type="text" name="cnpj" id="campo-CNPJ">
 
-            <label>Telefone *</label>
-            <input type="tel" name="telefone" autocomplete="tel">
+                <label for="campo-Email">E-mail *</label>
+                <input type="email" name="email" id="campo-Email" autocomplete="email">
 
-            <label>Pessoa do Contato *</label>
-            <input type="text" name="contato" autocomplete="name">
+                <label for="campo-Telefone">Telefone *</label>
+                <input type="tel" name="telefone" id="campo-Telefone" autocomplete="tel">
 
-            <label>Endereço *</label>
-            <input type="text" name="endereco" autocomplete="street-address">
+                <label for="campo-Contato">Pessoa do Contato *</label>
+                <input type="text" name="contato" id="campo-Contato" autocomplete="name">
 
-            <br></br>
+                <label for="campo-Endereco">Endereço *</label>
+                <input type="text" name="endereco" id="campo-Endereco" autocomplete="street-address">
 
-            <h3>Informações de Parceria</h3>
+                <br>
 
-            <label>Tipo de Parceria *</label>
-            <input type="text" name="tipo_parceria">
+                <h3>Informações de Parceria</h3>
 
-            <label>Website</label>
-            <input type="url" name="website"
-            autocomplete="url">
+                <label for="campo-Tipo-Parceria">Tipo de Parceria *</label>
+                <input type="text" name="tipo_parceria" id="campo-Tipo-Parceria">
 
-            <label>Vagas Disponíveis</label>
-            <input type="number" name="quantidade_vagas">
+                <label for="campo-Website"  >Website</label>
+                <input
+                    type="url"
+                    name="website"
+                    id="campo-Website"
+                    autocomplete="url"
+                >
 
-            <div class="checkbox-area">
-                <input type="checkbox" name="aceita_estagiario">
-                <span>Aceita Estagiários</span>
-            </div>
+                <label for="campo-Vagas"    >Vagas Disponíveis</label>
+                <input type="number" name="quantidade_vagas" id="campo-Vagas" min="0">
 
-            <label>Observações</label>
-            <textarea name="observacoes"></textarea>
+                <div class="checkbox-area">
+                    <input type="checkbox" name="aceita_estagiario" id="campo-Aceita-Estagiarios">
+                    <label for="campo-Aceita-Estagiarios">Aceita Estagiários</label>
+                </div>
 
-            <div class="botoes">
-                <a href="/" class="btn-cancelar">
-                    Cancelar
-                </a>
-                <button type="submit" class="btn-cadastro">
-                    Solicitar Cadastro
-                </button>
-            </div>
+                <label for="campo-Observacoes">Observações</label>
+                <textarea name="observacoes" id="campo-Observacoes"></textarea>
 
-        </form>
+                <div class="botoes">
+                    <a href="/" class="btn-cancelar">
+                        Cancelar
+                    </a>
 
-    </div>
+                    <button type="submit" class="btn-cadastro">
+                        Solicitar Cadastro
+                    </button>
+                </div>
 
-</div>
+            </form>
+
+        </div>
+
+    </main>
 
 </body>
 </html>

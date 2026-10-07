@@ -1,124 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Empresas Pendentes</title>
     <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<div class="admin-container">
+    <main class="admin-container">
 
-    <div class="topo-admin">
-        <div>
-            <h1>Painel Administrativo</h1>
-            <p class="admin-subtitulo">
-                Bem-vindo(a), Administrador IFPE
-            </p>
-            
-        </div>
+        <div class="topo-admin">
 
-        <a href="/" class="voltaradm">
-            ← Voltar
-        </a>
-    </div>
+            <div>
+                <h1>Painel Administrativo</h1>
 
-    <hr class="linha-admin">
-
-<div class="acoes-admin">
-
-    <a href="/cadastroempresaadmin" class="btn-admin-topo">
-        Cadastrar Empresa
-    </a>
-
-    <a href="/usuarios" class="btn-admin-topo">
-        Gerenciar Administradores
-    </a>
-
-</div>
-
-<hr class="linha-admin">
-
-<div class="tabs-admin">
-
-    <a href="/area-admin/pendentes"
-       class="tab-admin ativa">
-       Pendentes
-    </a>
-
-    <a href="/area-admin/aprovadas"
-       class="tab-admin">
-       Aprovadas
-    </a>
-
-</div>
-
-<hr class="linha-admin">
-
-    <div class="admin-section">
-        <h2>Empresas Pendentes</h2>
-
-        <p>Gerencie as Empresas Parceiras Pendentes Cadastradas.</p>
-
-        <hr class="linha-admin">
-
-        <p class="contador-admin">
-            {{pendentes.length}} empresa(s) encontrada(s)
-        </p>
-
-        <hr class="linha-admin">
-
-        {{#if pendentes.length}}
-
-            {{#each pendentes}}
-
-            <div class="empresa-card-admin">
-
-                <h3>{{nome}}</h3>
-
-                <p>{{email}}</p>
-
-                <span class="badge-parceria">
-                    {{tipo_parceria}}
-                </span>
-
-                <div class="botoes-admin">
-
-                    <form action="/empresa/aprovar/{{id}}" method="POST">
-                        <button class="btn-verde">
-                            Aprovar
-                        </button>
-                    </form>
-
-                    <a href="/empresa/editar/{{id}}" class="btn-branco">
-                        Editar
-                    </a>
-
-                    <form action="/empresa/deletar/{{id}}" method="POST">
-                        <button class="btn-vermelho">
-                            Excluir
-                        </button>
-                    </form>
-
-                </div>
-
+                <p class="admin-subtitulo">
+                    Bem-vindo(a), Administrador IFPE
+                </p>
             </div>
 
-            {{/each}}
+            <a href="/" class="voltaradm">
+                ← Voltar
+            </a>
 
-        {{else}}
+        </div>
 
-            <p class="texto-vazio">
-                Nenhuma empresa pendetes.
+        <hr class="linha-admin">
+
+        <div class="acoes-admin">
+
+            <a href="/cadastroempresaadmin" class="btn-admin-topo">
+                Cadastrar Empresa
+            </a>
+
+            <a href="/usuarios" class="btn-admin-topo">
+                Gerenciar Administradores
+            </a>
+
+        </div>
+
+        <hr class="linha-admin">
+
+        <div class="tabs-admin">
+
+            <a
+                href="/area-admin/pendentes"
+                class="tab-admin ativa"
+            >
+                Pendentes
+            </a>
+
+            <a
+                href="/area-admin/aprovadas"
+                class="tab-admin"
+            >
+                Aprovadas
+            </a>
+
+        </div>
+
+        <hr class="linha-admin">
+
+        <section class="admin-section">
+
+            <h2>Empresas Pendentes</h2>
+
+            <p>
+                Gerencie as Empresas Parceiras Pendentes Cadastradas.
             </p>
 
-        {{/if}}
+            <hr class="linha-admin">
 
+            <p class="contador-admin">
+                {{pendentes.length}} empresa(s) encontrada(s)
+            </p>
 
-    </div>
+            <hr class="linha-admin">
 
-</div>
+            {{#if pendentes.length}}
+
+                {{#each pendentes}}
+
+                <article class="empresa-card-admin">
+
+                    <h3>{{nome}}</h3>
+
+                    <p>{{email}}</p>
+
+                    <span class="badge-parceria">
+                        {{tipo_parceria}}
+                    </span>
+
+                    <div class="botoes-admin">
+
+                        <form
+                            action="/empresa/aprovar/{{id}}"
+                            method="POST"
+                        >
+                            <button
+                                type="submit"
+                                class="btn-verde"
+                            >
+                                Aprovar
+                            </button>
+                        </form>
+
+                        <a
+                            href="/empresa/editar/{{id}}"
+                            class="btn-branco"
+                        >
+                            Editar
+                        </a>
+
+                        <form
+                            action="/empresa/deletar/{{id}}"
+                            method="POST"
+                        >
+                            <button
+                                type="submit"
+                                class="btn-vermelho"
+                            >
+                                Excluir
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+                {{/each}}
+
+            {{else}}
+
+                <p class="texto-vazio">
+                    Nenhuma empresa pendente.
+                </p>
+
+            {{/if}}
+
+        </section>
+
+    </main>
 
 </body>
 </html>

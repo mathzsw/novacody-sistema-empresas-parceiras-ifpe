@@ -56,7 +56,7 @@ h1{
 
 .container > p{
     font-size:20px;
-    color:#555;
+    color:#333333;
     margin-bottom:30px;
 }
 
@@ -67,7 +67,7 @@ h1{
 .barra-de-busca input{
     width:100%;
     padding:20px;
-    border:1px solid #ddd;
+    border:1.5px solid #707070;
     border-radius:25px;
     background:white;
     font-size:17px;
@@ -119,7 +119,7 @@ section{
 }
 
 .empresa-card p{
-    color:#555;
+    color:#333333;
     margin-bottom:10px;
     line-height:1.5;
 }
@@ -158,7 +158,7 @@ section{
 }
 
 .form-box p{
-    color:#666;
+    color:#383838;
     margin-bottom:20px;
 }
 
@@ -173,7 +173,7 @@ section{
 .form-box textarea{
     width:100%;
     padding:12px 15px;
-    border:1px solid #ddd;
+    border:1.5px solid #707070;
     border-radius:20px;
     margin-bottom:15px;
     font-size:15px;
@@ -212,7 +212,7 @@ section{
 .btn-cancelar{
     text-decoration:none;
     color:black;
-    border:1px solid #ccc;
+    border:1.5px solid #707070;
     padding:12px 25px;
     border-radius:25px;
 }
@@ -284,7 +284,7 @@ section{
 }
 
 .admin-subtitulo{
-    color:#666;
+    color:#383838;
     font-size:20px;
     margin-top:10px;
 }
@@ -351,7 +351,7 @@ section{
 }
 
 .contador-admin{
-    color:#666;
+    color:#383838;
     font-size:20px;
     margin-bottom:25px;
 }
@@ -370,7 +370,7 @@ section{
 }
 
 .empresa-card-admin p{
-    color:#666;
+    color:#383838;
     margin-bottom:12px;
 }
 
@@ -396,7 +396,7 @@ section{
 .btn-branco{
     background:white;
     color:black;
-    border:1px solid #ccc;
+    border:1.5px solid #707070;
     text-decoration:none;
     padding:10px 25px;
     border-radius:25px;
@@ -412,7 +412,7 @@ section{
 }
 
 .btn-vermelho{
-    background:#ff3b3b;
+    background:#d32f2f;
     color:white;
     border:none;
     padding:10px 25px;
@@ -544,4 +544,16 @@ section{
 
 .voltar-modal:hover{
     text-decoration:underline;
+}
+
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }

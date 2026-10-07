@@ -1,84 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Administrador</title>
     <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<div class="form-container">
+    <main class="form-container">
 
-    <a href="/loginadmin" class="voltar">
-        ← Voltar
-    </a>
+        <a href="/loginadmin" class="voltar">
+            ← Voltar
+        </a>
 
-    <div class="form-box">
+        <div class="form-box">
 
-        <h2>Novo Administrador</h2>
+            <h1>Novo Administrador</h1>
 
-        <p>
-            Preencha os dados do novo administrador do sistema.
-        </p>
+            <p>
+                Preencha os dados do novo administrador do sistema.
+            </p>
 
-    </div>
+        </div>
 
-    <div class="form-box">
+        <div class="form-box">
 
-        <form action="/usuarios" method="POST">
+            <form action="/usuarios" method="POST">
 
-            <label>Nome</label>
+                <label for="campo-nome">Nome</label>
 
-            <input
-                type="text"
-                name="nome"
-                required
-            >
+                <input
+                    type="text"
+                    name="nome"
+                    id="campo-nome"
+                    autocomplete="name"
+                    required
+                >
 
-            <label>Email</label>
+                <label for="campo-Email">Email</label>
 
-            <input
-                type="email"
-                name="email"
-                required
-            >
+                <input
+                    type="email"
+                    name="email"
+                    id="campo-Email"
+                    autocomplete="email"
+                    required
+                >
 
-            <label>Senha</label>
+                <label for="campo-senha">Senha</label>
 
-            <input
-                type="password"
-                name="senha"
-                required
-            >
+                <input
+                    type="password"
+                    name="senha"
+                    id="campo-senha"
+                    autocomplete="new-password"
+                    required
+                >
 
-            <label>Tipo</label>
+                <label for="campo-tipo">Tipo</label>
 
-            <input
-                type="text"
-                name="tipo"
-                required
-            >
+                <input
+                    type="text"
+                    name="tipo"
+                    id="campo-tipo"
+                    required
+                >
 
-            <div class="botoes-form">
+                <div class="botoes-form">
 
-                <a href="/loginadmin" class="btn-cancelar">
-                    Cancelar
-                </a>
+                    <a href="/loginadmin" class="btn-cancelar">
+                        Cancelar
+                    </a>
 
-                <button
-                    type="submit"
-                    class="btn-salvar">
-                    Cadastrar
-                </button>
+                    <button
+                        type="submit"
+                        class="btn-salvar">
+                        Cadastrar
+                    </button>
 
-            </div>
+                </div>
 
-        </form>
+            </form>
 
-    </div>
+        </main>
 
-</div>
+    </main>
 
 </body>
 </html>

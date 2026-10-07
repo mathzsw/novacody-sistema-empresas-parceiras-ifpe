@@ -1,82 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Cadastro Empresa</title>
     <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<div class="form-container">
+    <main class="form-container">
 
-    <a href="/area-admin" class="voltaradm">
-        ← Voltar
-    </a>
+        <a href="/area-admin" class="voltaradm">
+            ← Voltar
+        </a>
 
-    <div class="form-box">
+        <div class="form-box">
 
-        <h2>Cadastro de Empresa Parceira</h2>
+            <h1>Cadastro de Empresa Parceira</h1>
 
-        <p>
-            Preencha os Dados da Empresa para Parceria com o IFPE
-        </p>
+            <p>
+                Preencha os Dados da Empresa para Parceria com o IFPE
+            </p>
 
-        <form action="/empresa/admin" method="POST">
+            <form action="/empresa/admin" method="POST">
 
-            <label>Nome da Empresa/Projeto *</label>
-            <input type="text" name="nome">
+                <label for="campo-Nome-Empresa">Nome da Empresa/Projeto *</label>
+                <input
+                    type="text"
+                    name="nome"
+                    id="campo-Nome-Empresa"
+                >
 
-            <label>CNPJ *</label>
-            <input type="text" name="cnpj">
+                <label for="campo-CNPJ">CNPJ *</label>
+                <input
+                    type="text"
+                    name="cnpj"
+                    id="campo-CNPJ"
+                >
 
-            <label>E-mail *</label>
-            <input type="text" name="email">
+                <label for="campo-E-mail">E-mail *</label>
+                <input
+                    type="text"
+                    name="email"
+                    id="campo-E-mail"
+                >
 
-            <label>Telefone *</label>
-            <input type="text" name="telefone">
+                <label for="campo-Telefone">Telefone *</label>
+                <input
+                    type="text"
+                    name="telefone"
+                    id="campo-Telefone"
+                >
 
-            <label>Pessoa do Contato *</label>
-            <input type="text" name="contato">
+                <label for="campo-Contato">Pessoa do Contato *</label>
+                <input
+                    type="text"
+                    name="contato"
+                    id="campo-Contato"
+                >
 
-            <label>Endereço *</label>
-            <input type="text" name="endereco">
+                <label for="campo-Endereco">Endereço *</label>
+                <input
+                    type="text"
+                    name="endereco"
+                    id="campo-Endereco"
+                >
 
-            <br></br>
+                <br>
 
-            <h3>Informações de Parceria</h3>
+                <h2>Informações de Parceria</h2>
 
-            <label>Tipo de Parceria *</label>
-            <input type="text" name="tipo_parceria">
+                <label for="campo-Tipo-Parceria">Tipo de Parceria *</label>
+                <input
+                    type="text"
+                    name="tipo_parceria"
+                    id="campo-Tipo-Parceria"
+                >
 
-            <label>Website</label>
-            <input type="text" name="website">
+                <label for="campo-Website">Website</label>
+                <input
+                    type="text"
+                    name="website"
+                    id="campo-Website"
+                >
 
-            <label>Vagas Disponíveis</label>
-            <input type="number" name="quantidade_vagas">
+                <label for="campo-Vagas">Vagas Disponíveis</label>
+                <input
+                    type="number"
+                    name="quantidade_vagas"
+                    id="campo-Vagas"
+                >
 
-            <div class="checkbox-area">
-                <input type="checkbox" name="aceita_estagiario">
-                <span>Aceita Estagiários</span>
-            </div>
+                <div class="checkbox-area">
 
-            <label>Observações</label>
-            <textarea name="observacoes"></textarea>
+                    <input
+                        type="checkbox"
+                        name="aceita_estagiario"
+                        id="campo-Aceita-Estagiarios"
+                    >
 
-            <div class="botoes">
-                <a href="/" class="btn-cancelar">
-                    Cancelar
-                </a>
-                <button type="submit" class="btn-cadastro">
-                    Cadastrar Empresa
-                </button>
-            </div>
+                    <label for="campo-Aceita-Estagiarios">Aceita Estagiários</label>
 
-        </form>
+                </div>
 
-    </div>
+                <label for="campo-Observacoes">Observações</label>
 
-</div>
+                <textarea name="observacoes" id="campo-Observacoes"></textarea>
+
+                <div class="botoes">
+
+                    <a href="/" class="btn-cancelar">
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-cadastro"
+                    >
+                        Cadastrar Empresa
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
 
 </body>
 </html>

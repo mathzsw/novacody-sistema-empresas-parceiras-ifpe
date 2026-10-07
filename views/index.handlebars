@@ -1,105 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Empresas Parceiras IFPE</title>
+    <title>Empresas Parceiras IFPE</title>
     <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<header class="ifpe-header">
+    <header class="ifpe-header">
 
-    <div class="container header-container">
+        <div class="container header-container">
 
-        <div class="logo-area">
-            <img src="/img/ifpelogo.png" alt="IFPE">
-        </div>
+            <div class="logo-area">
+                <img src="/img/ifpelogo.png" alt="IFPE">
+            </div>
 
-        <div class="header-buttons">
-             <a href="/loginadmin">Área Administrativa</a>
-            
-            <a href="/cadastroempresa">Solicitar Cadastro</a>
-
-</header>
-
-<div class="container">
-
-    <h1>Empresas Parceiras IFPE</h1>
-
-    <p>
-        Explore Oportunidades de Estágio, Projeto de Extensão e Emprego
-    </p>
-
-    <form action="/" method="GET">
-
-        <div class="barra-de-busca">
-
-            <input
-                type="text"
-                name="busca"
-                value="{{busca}}"
-                placeholder="Buscar por nome, CNPJ, email..."
-            >
+            <div class="header-buttons">
+                <a href="/loginadmin">Área Administrativa</a>
+                <a href="/cadastroempresa">Solicitar Cadastro</a>
+            </div>
 
         </div>
 
-        <div class="filtro-area">
+    </header>
 
-            <select name="tipo">
+    <main class="container">
+
+        <h1>Empresas Parceiras IFPE</h1>
+
+        <p>
+            Explore Oportunidades de Estágio, Projeto de Extensão e Emprego
+        </p>
+
+        <form action="/" method="GET">
+
+            <div class="barra-de-busca">
+                <label for="campo-busca" class="visually-hidden">Buscar empresas por nome, CNPJ ou email</label>
+                <input
+                    id="campo-busca"
+                    type="text"
+                    name="busca"
+                    value="{{busca}}"
+                    placeholder="Buscar por nome, CNPJ, email..."
+                >
+
+            </div>
+
+            <div class="filtro-area">
+            <label for="filtro-tipo" class="visually-hidden">Filtrar por tipo de parceria</label>
+            <select name="tipo" id="filtro-tipo">
                 <option value="">Todas</option>
                 <option value="Estágio" {{estagio}}>Estágio</option>
                 <option value="Emprego" {{emprego}}>Emprego</option>
                 <option value="Projeto de Extensão" {{projeto}}>
                     Projeto de Extensão
-                </option>
-            </select>
+                    </option>
+                </select>
 
-            <button type="submit">
-                Filtrar
-            </button>
+                <button type="submit">
+                    Filtrar
+                </button>
 
-        </div>
+            </div>
 
-    </form>
+        </form>
 
-    <section>
+        <section>
 
-        {{#each empresas}}
+            {{#each empresas}}
 
-        <div class="empresa-card">
+                <article class="empresa-card">
 
-            <h2>{{nome}}</h2>
+                    <h2>{{nome}}</h2>
 
-            <p><strong>CNPJ:</strong> {{cnpj}}</p>
+                    <p><strong>CNPJ:</strong> {{cnpj}}</p>
 
-            <p>{{email}}</p>
+                    <p>{{email}}</p>
 
-            <p>{{telefone}}</p>
+                    <p>{{telefone}}</p>
 
-            <p>{{endereco}}</p>
+                    <p>{{endereco}}</p>
 
-            <p>{{website}}</p>
+                    <p>{{website}}</p>
 
-            <p>{{contato}}</p>
+                    <p>{{contato}}</p>
 
-            <p>{{tipo_parceria}}</p>
+                    <p>{{tipo_parceria}}</p>
 
-            <p><strong>{{quantidade_vagas}} vagas</strong></p>
+                    <p><strong>{{quantidade_vagas}} vagas</strong></p>
 
-        </div>
+                </article>
 
-        {{/each}}
+            {{/each}}
 
-    </section>
+        </section>
 
-</div>
+    </main>
 
 </body>
 </html>
