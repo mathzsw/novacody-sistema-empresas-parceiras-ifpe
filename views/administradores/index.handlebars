@@ -1,84 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Administradores</title>
     <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<div class="admin-container">
+    <main class="admin-container">
 
-    <div class="topo-admin">
+        <div class="topo-admin">
 
-        <div>
-            <h1>Administradores</h1>
+            <div>
+                <h1>Administradores</h1>
 
-            <p class="admin-subtitulo">
-                Gerencie os administradores do sistema.
-            </p>
-        </div>
-
-        <a href="/area-admin" class="voltaradm">
-            ← Voltar
-        </a>
-
-    </div>
-
-    <hr class="linha-admin">
-
-    <a href="/usuarios/cadastrar" class="btn-cadastrar-admin">
-        Cadastrar Novo Administrador
-    </a>
-
-    <p class="contador-admin">
-        {{administradores.length}} administrador(es)
-    </p>
-
-    {{#if administradores.length}}
-
-        {{#each administradores}}
-
-        <div class="empresa-card-admin">
-
-            <h3>{{nome}}</h3>
-
-            <p>{{email}}</p>
-
-            <span class="badge-parceria">
-                {{tipo}}
-            </span>
-
-            <div class="botoes-admin">
-
-                <a href="/usuarios/editar/{{id}}" class="btn-branco">
-                    Editar
-                </a>
-
-                <form action="/usuarios/deletar/{{id}}" method="POST">
-
-                    <button class="btn-vermelho">
-                        Excluir
-                    </button>
-
-                </form>
-
+                <p class="admin-subtitulo">
+                    Gerencie os administradores do sistema.
+                </p>
             </div>
 
+            <a href="/area-admin" class="voltaradm">
+                ← Voltar
+            </a>
+
         </div>
 
-        {{/each}}
+        <hr class="linha-admin">
 
-    {{else}}
+        <a href="/usuarios/cadastrar" class="btn-cadastrar-admin">
+            Cadastrar Novo Administrador
+        </a>
 
-        <p class="texto-vazio">
-            Nenhum administrador cadastrado.
+        <p class="contador-admin">
+            {{administradores.length}} administrador(es)
         </p>
 
-    {{/if}}
+        {{#if administradores.length}}
 
-</div>
+            {{#each administradores}}
+
+            <article class="empresa-card-admin">
+
+                <h2>{{nome}}</h2>
+
+                <p>{{email}}</p>
+
+                <span class="badge-parceria">
+                    {{tipo}}
+                </span>
+
+                <div class="botoes-admin">
+
+                    <a href="/usuarios/editar/{{id}}" class="btn-branco">
+                        Editar
+                    </a>
+
+                    <form action="/usuarios/deletar/{{id}}" method="POST">
+
+                        <button type="submit" class="btn-vermelho">
+                            Excluir
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </article>
+
+            {{/each}}
+
+        {{else}}
+
+            <p class="texto-vazio">
+                Nenhum administrador cadastrado.
+            </p>
+
+        {{/if}}
+
+    </main>
 
 </body>
 </html>

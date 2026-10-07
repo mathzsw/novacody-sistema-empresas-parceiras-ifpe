@@ -290,7 +290,6 @@ app.post('/empresa/deletar/:id', async (req, res) => {
 // CRUD ADMINS - THAIS
 
 
-
 app.get('/usuarios', async (req, res) => {
    try {
 
@@ -408,6 +407,8 @@ app.post('/usuarios/deletar/:id', async (req, res) => {
    res.redirect('/usuarios');
 });
 
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Solicitar Cadastro</title>
@@ -7,86 +7,92 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<div class="form-container">
+<body>
 
-    <a href="/" class="voltar">
-        ← Voltar
-    </a>
+    <div class="form-container">
 
-    <div class="form-box">
-        <h3>Solicitação de Cadastro</h3>
+        <a href="/" class="voltar">
+            ← Voltar
+        </a>
 
-        <p>
-            Preencha o formulário abaixo para solicitar o cadastro da sua empresa
-            como parceira do IFPE. Após o envio, sua solicitação será analisada
-            pela equipe administrativa.
-        </p>
+        <div class="form-box">
+            <h1>Solicitação de Cadastro</h1>
+
+            <p>
+                Preencha o formulário abaixo para solicitar o cadastro da sua empresa
+                como parceira do IFPE. Após o envio, sua solicitação será analisada
+                pela equipe administrativa.
+            </p>
+        </div>
+
+        <div class="form-box">
+
+            <h2>Solicitar Cadastro de Empresa Parceira</h2>
+
+            <p>
+                Preencha os Dados da Empresa para Parceria com o IFPE
+            </p>
+
+            <form action="/empresa" method="POST">
+
+                <label>Nome da Empresa/Projeto *</label>
+                <input type="text" name="nome" autocomplete="organization">
+
+                <label>CNPJ *</label>
+                <input type="text" name="cnpj">
+
+                <label>E-mail *</label>
+                <input type="email" name="email" autocomplete="email">
+
+                <label>Telefone *</label>
+                <input type="tel" name="telefone" autocomplete="tel">
+
+                <label>Pessoa do Contato *</label>
+                <input type="text" name="contato" autocomplete="name">
+
+                <label>Endereço *</label>
+                <input type="text" name="endereco" autocomplete="street-address">
+
+                <br>
+
+                <h3>Informações de Parceria</h3>
+
+                <label>Tipo de Parceria *</label>
+                <input type="text" name="tipo_parceria">
+
+                <label>Website</label>
+                <input
+                    type="url"
+                    name="website"
+                    autocomplete="url"
+                >
+
+                <label>Vagas Disponíveis</label>
+                <input type="number" name="quantidade_vagas">
+
+                <div class="checkbox-area">
+                    <input type="checkbox" name="aceita_estagiario">
+                    <span>Aceita Estagiários</span>
+                </div>
+
+                <label>Observações</label>
+                <textarea name="observacoes"></textarea>
+
+                <div class="botoes">
+                    <a href="/" class="btn-cancelar">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="btn-cadastro">
+                        Solicitar Cadastro
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
     </div>
-
-    <div class="form-box">
-
-        <h2>Solicitar Cadastro de Empresa Parceira</h2>
-
-        <p>
-            Preencha os Preencha os Dados da Empresa para Parceria com o IFPE
-        </p>
-
-        <form action="/empresa" method="POST">
-
-            <label>Nome da Empresa/Projeto *</label>
-            <input type="text" name="nome" autocomplete="organization">
-
-            <label>CNPJ *</label>
-            <input type="text" name="cnpj">
-
-            <label>E-mail *</label>
-            <input type="email" name="email" autocomplete="email">
-
-            <label>Telefone *</label>
-            <input type="tel" name="telefone" autocomplete="tel">
-
-            <label>Pessoa do Contato *</label>
-            <input type="text" name="contato" autocomplete="name">
-
-            <label>Endereço *</label>
-            <input type="text" name="endereco" autocomplete="street-address">
-
-            <br></br>
-
-            <h3>Informações de Parceria</h3>
-
-            <label>Tipo de Parceria *</label>
-            <input type="text" name="tipo_parceria">
-
-            <label>Website</label>
-            <input type="url" name="website"
-            autocomplete="url">
-
-            <label>Vagas Disponíveis</label>
-            <input type="number" name="quantidade_vagas">
-
-            <div class="checkbox-area">
-                <input type="checkbox" name="aceita_estagiario">
-                <span>Aceita Estagiários</span>
-            </div>
-
-            <label>Observações</label>
-            <textarea name="observacoes"></textarea>
-
-            <div class="botoes">
-                <a href="/" class="btn-cancelar">
-                    Cancelar
-                </a>
-                <button type="submit" class="btn-cadastro">
-                    Solicitar Cadastro
-                </button>
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
 
 </body>
 </html>
