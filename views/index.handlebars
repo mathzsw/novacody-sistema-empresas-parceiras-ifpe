@@ -1,109 +1,109 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Empresas Parceiras IFPE</title>
-    <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
+<html lang="pt-br"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Empresas Parceiras IFPE</title>
+<link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
 
-    <link rel="stylesheet" href="/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+
 </head>
 
 <body>
 
-    <header class="ifpe-header">
+<header class="ifpe-header">
 
-        <div class="container header-container">
+    <div class="container header-container">
 
-            <div class="logo-area">
-                <img src="/img/ifpelogo.png" alt="IFPE">
-            </div>
+        <div class="logo-area">
+            <img src="/img/ifpelogo.png" alt="IFPE">
+        </div>
 
-            <div class="header-buttons">
-                <a href="/loginadmin">Área Administrativa</a>
-                <a href="/cadastroempresa">Solicitar Cadastro</a>
-            </div>
+        <div class="header-buttons">
+            <a href="/loginadmin">Área Administrativa</a>
+            <a href="/cadastroempresa">Solicitar Cadastro</a>
+        </div>
+
+    </div>
+
+</header>
+
+<main class="container">
+
+    <h1>Empresas Parceiras IFPE</h1>
+
+    <p>
+        Explore Oportunidades de Estágio, Projeto de Extensão e Emprego
+    </p>
+
+    <form action="/" method="GET">
+
+        <div class="barra-de-busca">
+            <label for="campo-busca" class="visually-hidden">Buscar empresas por nome, CNPJ ou email</label>
+            <input
+                id="campo-busca"
+                type="text"
+                name="busca"
+                autocomplete="search"
+                value="{{busca}}"
+                placeholder="Buscar por nome, CNPJ, email..."
+            >
 
         </div>
 
-    </header>
+        <div class="filtro-area">
+        <label for="filtro-tipo" class="visually-hidden">Filtrar por tipo de parceria</label>
+        <select name="tipo" id="filtro-tipo">
+            <option value="">Todas</option>
+            <option value="Estágio" {{estagio}}>Estágio</option>
+            <option value="Emprego" {{emprego}}>Emprego</option>
+            <option value="Projeto de Extensão" {{projeto}}>
+                Projeto de Extensão
+                </option>
+            </select>
 
-    <main class="container">
+            <button type="submit">
+                Filtrar
+            </button>
 
-        <h1>Empresas Parceiras IFPE</h1>
+        </div>
 
-        <p>
-            Explore Oportunidades de Estágio, Projeto de Extensão e Emprego
-        </p>
+    </form>
 
-        <form action="/" method="GET">
+    <section>
 
-            <div class="barra-de-busca">
-                <label for="campo-busca" class="visually-hidden">Buscar empresas por nome, CNPJ ou email</label>
-                <input
-                    id="campo-busca"
-                    type="text"
-                    name="busca"
-                    value="{{busca}}"
-                    placeholder="Buscar por nome, CNPJ, email..."
-                >
+        {{#each empresas}}
 
-            </div>
+            <article class="empresa-card">
 
-            <div class="filtro-area">
-            <label for="filtro-tipo" class="visually-hidden">Filtrar por tipo de parceria</label>
-            <select name="tipo" id="filtro-tipo">
-                <option value="">Todas</option>
-                <option value="Estágio" {{estagio}}>Estágio</option>
-                <option value="Emprego" {{emprego}}>Emprego</option>
-                <option value="Projeto de Extensão" {{projeto}}>
-                    Projeto de Extensão
-                    </option>
-                </select>
+                <h2>{{nome}}</h2>
 
-                <button type="submit">
-                    Filtrar
-                </button>
+                <p><strong>CNPJ:</strong> {{cnpj}}</p>
 
-            </div>
+                <p>{{email}}</p>
 
-        </form>
+                <p>{{telefone}}</p>
 
-        <section>
+                <p>{{endereco}}</p>
 
-            {{#each empresas}}
+                <p>{{website}}</p>
 
-                <article class="empresa-card">
+                <p>{{contato}}</p>
 
-                    <h2>{{nome}}</h2>
+                <p>{{tipo_parceria}}</p>
 
-                    <p><strong>CNPJ:</strong> {{cnpj}}</p>
+                <p><strong>{{quantidade_vagas}} vagas</strong></p>
 
-                    <p>{{email}}</p>
+            </article>
 
-                    <p>{{telefone}}</p>
+        {{/each}}
 
-                    <p>{{endereco}}</p>
+    </section>
 
-                    <p>{{website}}</p>
+</main>
 
-                    <p>{{contato}}</p>
-
-                    <p>{{tipo_parceria}}</p>
-
-                    <p><strong>{{quantidade_vagas}} vagas</strong></p>
-
-                </article>
-
-            {{/each}}
-
-        </section>
-
-    </main>
-
-</body>
+</body> 
 </html>
