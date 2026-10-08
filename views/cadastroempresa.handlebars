@@ -9,7 +9,7 @@
 
 <body>
 
-    <div class="form-container">
+    <main class="form-container">
 
         <a href="/" class="voltar">
             ← Voltar
@@ -35,48 +35,50 @@
 
             <form action="/empresa" method="POST">
 
-                <label>Nome da Empresa/Projeto *</label>
-                <input type="text" name="nome" autocomplete="organization">
+                
+                <label for="campo-Nome-Empresa">Nome da Empresa/Projeto *</label>
+                <input type="text" name="nome" id="campo-Nome-Empresa" autocomplete="organization">
 
-                <label>CNPJ *</label>
-                <input type="text" name="cnpj">
+                <label for="campo-CNPJ">CNPJ *</label>
+                <input type="text" name="cnpj" id="campo-CNPJ">
 
-                <label>E-mail *</label>
-                <input type="email" name="email" autocomplete="email">
+                <label for="campo-Email">E-mail *</label>
+                <input type="email" name="email" id="campo-Email" autocomplete="email">
 
-                <label>Telefone *</label>
-                <input type="tel" name="telefone" autocomplete="tel">
+                <label for="campo-Telefone">Telefone *</label>
+                <input type="tel" name="telefone" id="campo-Telefone" autocomplete="tel">
 
-                <label>Pessoa do Contato *</label>
-                <input type="text" name="contato" autocomplete="name">
+                <label for="campo-Contato">Pessoa do Contato *</label>
+                <input type="text" name="contato" id="campo-Contato" autocomplete="name">
 
-                <label>Endereço *</label>
-                <input type="text" name="endereco" autocomplete="street-address">
+                <label for="campo-Endereco">Endereço *</label>
+                <input type="text" name="endereco" id="campo-Endereco" autocomplete="street-address">
 
                 <br>
 
                 <h3>Informações de Parceria</h3>
 
-                <label>Tipo de Parceria *</label>
-                <input type="text" name="tipo_parceria">
+                <label for="campo-Tipo-Parceria">Tipo de Parceria *</label>
+                <input type="text" name="tipo_parceria" id="campo-Tipo-Parceria">
 
-                <label>Website</label>
+                <label for="campo-Website"  >Website</label>
                 <input
                     type="url"
                     name="website"
+                    id="campo-Website"
                     autocomplete="url"
                 >
 
-                <label>Vagas Disponíveis</label>
-                <input type="number" name="quantidade_vagas">
+                <label for="campo-Vagas"    >Vagas Disponíveis</label>
+                <input type="number" name="quantidade_vagas" id="campo-Vagas" min="0">
 
                 <div class="checkbox-area">
-                    <input type="checkbox" name="aceita_estagiario">
-                    <span>Aceita Estagiários</span>
+                    <input type="checkbox" name="aceita_estagiario" id="campo-Aceita-Estagiarios">
+                    <label for="campo-Aceita-Estagiarios">Aceita Estagiários</label>
                 </div>
 
-                <label>Observações</label>
-                <textarea name="observacoes"></textarea>
+                <label for="campo-Observacoes">Observações</label>
+                <textarea name="observacoes" id="campo-Observacoes"></textarea>
 
                 <div class="botoes">
                     <a href="/" class="btn-cancelar">
@@ -92,7 +94,7 @@
 
         </div>
 
-    </div>
+    </main>
 
 </body>
 </html>
