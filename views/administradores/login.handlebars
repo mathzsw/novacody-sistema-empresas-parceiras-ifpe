@@ -1,64 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Administradores</title>
-    <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+
+<html lang="pt-br"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Login Administradores</title> 
+        <link rel="icon" type="image/x-icon" href="/img/iconelogin.png"> 
+        <link rel="stylesheet" href="/css/style.css"> 
+    </head>
 
 <body class="login-page">
 
 <main class="login-card">
 
-    <a href="/" class="voltar">
-        ← Voltar
-    </a>
+<a href="/" class="voltar">
+    ← Voltar
+</a>
 
-    <div class="login-icon">
-        <img src="/img/iconelogin.png" alt="Área Administrativa">
-    </div>
+<div class="login-icon">
+    <img src="/img/iconelogin.png" alt="Área Administrativa">
+</div>
 
-    <h1>Área Administrativa</h1>
+<h1>Área Administrativa</h1>
 
-    <form action="/area-admin">
+<form action="/area-admin">
 
-        <label for="campo-usuario">Usuário:</label>
-        <input
-            id="campo-usuario"
-            type="text"
-            name="usuario"
-            placeholder="Digite seu usuário"
-            required
-        >
+    <label for="campo-usuario">Usuário:</label>
+    <input
+        id="campo-usuario"
+        type="text"
+        name="usuario"
+        autocomplete="username"
+        placeholder="Digite seu usuário"
+        required
+    >
 
-        <label for="campo-senha">Senha:</label>
-        <input
-            id="campo-senha"
-            type="password"
-            name="senha"
-            placeholder="Digite sua senha"
-            required
-        >
+    <label for="campo-senha">Senha:</label>
+    <input
+        id="campo-senha"
+        type="password"
+        name="senha"
+        autocomplete="current-password"
+        placeholder="Digite sua senha"
+        required
+    >
 
-        <button type="submit" class="btn-login">
-            Entrar
-        </button>
+    <button type="submit" class="btn-login">
+        Entrar
+    </button>
 
-    </form>
+</form>
 
-    <hr>
+<hr>
 
-    <p class="texto-login">
-        Não é administrador?
-    </p>
+<p class="texto-login">
+    Não é administrador?
+</p>
 
-    <a href="/usuarios/cadastrar" class="btn-cadastro-admin">
-        Cadastrar administrador
-    </a>
+<a href="/usuarios/cadastrar" class="btn-cadastro-admin">
+    Cadastrar administrador
+</a>
 
 </main>
 
-</body>
+</body> 
 </html>
