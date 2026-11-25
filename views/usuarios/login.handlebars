@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acesso da empresa | Novacody</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="login-page">
+  <main class="login-card">
+    <a href="/" class="voltar">← Voltar</a>
+    <h1>Área da Empresa</h1>
+    <p>Entre com as credenciais fornecidas pela administração do IFPE.</p>
+    {{#if erro}}<p role="alert">{{erro}}</p>{{/if}}
+    {{#if mensagem}}<p role="status">{{mensagem}}</p>{{/if}}
+    <form action="/loginempresa" method="POST">
+      <label for="email">E-mail</label>
+      <input id="email" type="email" name="email" autocomplete="username" required>
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" name="senha" autocomplete="current-password" required>
+      <button type="submit" class="btn-login">Entrar</button>
+    </form>
+  </main>
+</body>
+</html>
