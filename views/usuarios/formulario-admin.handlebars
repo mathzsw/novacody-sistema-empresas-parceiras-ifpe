@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Representante | Novacody</title><link rel="stylesheet" href="/css/style.css"></head>
+<body>
+  <main class="form-container">
+    <a class="voltar" href="/representantes">← Voltar</a>
+    <section class="form-box">
+      <h1>{{#if edicao}}Editar representante{{else}}Cadastrar representante{{/if}}</h1>
+      <p>O acesso fica vinculado a uma única empresa aprovada.</p>
+      {{#if erro}}<p role="alert">{{erro}}</p>{{/if}}
+      <form action="{{#if edicao}}/representantes/{{usuario.id}}/editar{{else}}/representantes{{/if}}" method="POST">
+        <label for="nome">Nome</label><input id="nome" name="nome" value="{{usuario.nome}}" required>
+        <label for="email">E-mail</label><input id="email" type="email" name="email" value="{{usuario.email}}" required>
+        <label for="empresaId">Empresa</label>
+        <select id="empresaId" name="empresaId" required>
+          <option value="">Selecione uma empresa</option>
+          {{#each empresas}}<option value="{{id}}" {{#if (eq id ../usuario.empresaId)}}selected{{/if}}>{{nome}}</option>{{/each}}
+        </select>
+        <label for="senha">Senha {{#if edicao}}(deixe em branco para manter){{else}}(mínimo de 8 caracteres){{/if}}</label>
+        <input id="senha" type="password" name="senha" minlength="8" {{#unless edicao}}required{{/unless}}>
+        {{#if edicao}}<label><input type="checkbox" name="ativo" {{#if usuario.ativo}}checked{{/if}}> Conta ativa</label>{{/if}}
+        <button class="btn-salvar" type="submit">Salvar</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

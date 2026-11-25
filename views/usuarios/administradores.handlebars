@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Representantes | Novacody</title><link rel="stylesheet" href="/css/style.css"></head>
+<body>
+  <main class="admin-container">
+    <div class="topo-admin"><div><h1>Contas de representantes</h1><p class="admin-subtitulo">Acesso das empresas parceiras ao painel privado.</p></div><a class="voltaradm" href="/area-admin">← Painel</a></div>
+    <a class="btn-cadastrar-admin" href="/representantes/cadastrar">Cadastrar representante</a>
+    {{#each usuarios}}
+      <article class="empresa-card-admin">
+        <h2>{{nome}}</h2><p>{{email}}</p><p>Empresa: {{empresa.nome}}</p>
+        <span class="badge-parceria">{{#if ativo}}Ativo{{else}}Inativo{{/if}}</span>
+        <div class="botoes-admin">
+          <a class="btn-branco" href="/representantes/{{id}}/editar">Editar</a>
+          <form action="/representantes/{{id}}/excluir" method="POST"><button class="btn-vermelho" type="submit">Excluir acesso</button></form>
+        </div>
+      </article>
+    {{else}}<p class="texto-vazio">Nenhum representante cadastrado.</p>{{/each}}
+  </main>
+</body>
+</html>

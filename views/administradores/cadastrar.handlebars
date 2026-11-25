@@ -1,93 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastrar Administrador</title>
-    <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cadastrar Administrador</title><link rel="stylesheet" href="/css/style.css"></head>
 <body>
-
-    <main class="form-container">
-
-        <a href="/loginadmin" class="voltar">
-            ← Voltar
-        </a>
-
-        <div class="form-box">
-
-            <h1>Novo Administrador</h1>
-
-            <p>
-                Preencha os dados do novo administrador do sistema.
-            </p>
-
-        </div>
-
-        <div class="form-box">
-
-            <form action="/usuarios" method="POST">
-
-                <label for="campo-nome">Nome</label>
-
-                <input
-                    type="text"
-                    name="nome"
-                    id="campo-nome"
-                    autocomplete="name"
-                    required
-                >
-
-                <label for="campo-Email">Email</label>
-
-                <input
-                    type="email"
-                    name="email"
-                    id="campo-Email"
-                    autocomplete="email"
-                    required
-                >
-
-                <label for="campo-senha">Senha</label>
-
-                <input
-                    type="password"
-                    name="senha"
-                    id="campo-senha"
-                    autocomplete="new-password"
-                    required
-                >
-
-                <label for="campo-tipo">Tipo</label>
-
-                <input
-                    type="text"
-                    name="tipo"
-                    id="campo-tipo"
-                    required
-                >
-
-                <div class="botoes-form">
-
-                    <a href="/loginadmin" class="btn-cancelar">
-                        Cancelar
-                    </a>
-
-                    <button
-                        type="submit"
-                        class="btn-salvar">
-                        Cadastrar
-                    </button>
-
-                </div>
-
-            </form>
-
-        </main>
-
-    </main>
-
+  <main class="form-container">
+    <a href="/usuarios" class="voltar">← Voltar</a>
+    <section class="form-box">
+      <h1>Novo Administrador</h1>
+      <p>Preencha os dados do novo administrador.</p>
+      {{#if erro}}<p role="alert">{{erro}}</p>{{/if}}
+      <form action="/usuarios" method="POST">
+        <label for="nome">Nome</label><input id="nome" name="nome" autocomplete="name" required>
+        <label for="email">E-mail</label><input id="email" type="email" name="email" autocomplete="email" required>
+        <label for="senha">Senha (mínimo de 8 caracteres)</label><input id="senha" type="password" name="senha" minlength="8" required>
+        <label for="tipo">Tipo</label><input id="tipo" name="tipo" value="admin" required>
+        <div class="botoes-form"><a href="/usuarios" class="btn-cancelar">Cancelar</a><button type="submit" class="btn-salvar">Cadastrar</button></div>
+      </form>
+    </section>
+  </main>
 </body>
 </html>

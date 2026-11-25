@@ -1,2 +1,6 @@
 node_modules/
 .env
+react-app/node_modules/
+react-app/dist/
+npm-debug.log*
+.DS_Store

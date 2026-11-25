@@ -1,93 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Editar Administrador</title>
-    <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editar Administrador</title>
+  <link rel="icon" type="image/x-icon" href="/img/iconelogin.png">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-
-    <div class="form-container">
-
-        <a href="/usuarios" class="voltar">
-            ← Voltar
-        </a>
-
-        <div class="form-box">
-
-            <h1>Editar Administrador</h1>
-
-            <p>
-                Atualize os dados do administrador.
-            </p>
-
+  <main class="form-container">
+    <a href="/usuarios" class="voltar">← Voltar</a>
+    <section class="form-box">
+      <h1>Editar Administrador</h1>
+      {{#if erro}}<p role="alert">{{erro}}</p>{{/if}}
+      <form action="/usuarios/editar/{{administrador.id}}" method="POST">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" name="nome" value="{{administrador.nome}}" required>
+        <label for="email">E-mail</label>
+        <input id="email" type="email" name="email" value="{{administrador.email}}" required>
+        <label for="senha">Nova senha (deixe em branco para manter a atual)</label>
+        <input id="senha" type="password" name="senha" autocomplete="new-password" minlength="8">
+        <label for="tipo">Tipo</label>
+        <input id="tipo" type="text" name="tipo" value="{{administrador.tipo}}" required>
+        <div class="botoes-form">
+          <a href="/usuarios" class="btn-cancelar">Cancelar</a>
+          <button type="submit" class="btn-salvar">Salvar alterações</button>
         </div>
-
-        <div class="form-box">
-
-            <form action="/usuarios/editar/{{administrador.id}}" method="POST">
-
-                <label>Nome</label>
-
-                <input
-                    type="text"
-                    name="nome"
-                    value="{{administrador.nome}}"
-                    autocomplete="name"
-                    required
-                >
-
-                <label>Email</label>
-
-                <input
-                    type="email"
-                    name="email"
-                    value="{{administrador.email}}"
-                    autocomplete="email"
-                    required
-                >
-
-                <label>Senha</label>
-
-                <input
-                    type="password"
-                    name="senha"
-                    value="{{administrador.senha}}"
-                    autocomplete="new-password"
-                    required
-                >
-
-                <label>Tipo</label>
-
-                <input
-                    type="text"
-                    name="tipo"
-                    value="{{administrador.tipo}}"
-                    required
-                >
-
-                <div class="botoes-form">
-
-                    <a href="/usuarios" class="btn-cancelar">
-                        Cancelar
-                    </a>
-
-                    <button
-                        type="submit"
-                        class="btn-salvar">
-                        Salvar Alterações
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-
-    </div>
-
+      </form>
+    </section>
+  </main>
 </body>
 </html>

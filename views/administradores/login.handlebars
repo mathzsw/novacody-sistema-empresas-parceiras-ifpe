@@ -1,67 +1,27 @@
 <!DOCTYPE html>
-
-<html lang="pt-br"> 
-    <head> 
-        <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Login Administradores</title> 
-        <link rel="icon" type="image/x-icon" href="/img/iconelogin.png"> 
-        <link rel="stylesheet" href="/css/style.css"> 
-    </head>
-
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Área administrativa | Novacody</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
 <body class="login-page">
-
-<main class="login-card">
-
-<a href="/" class="voltar">
-    ← Voltar
-</a>
-
-<div class="login-icon">
-    <img src="/img/iconelogin.png" alt="Área Administrativa">
-</div>
-
-<h1>Área Administrativa</h1>
-
-<form action="/area-admin">
-
-    <label for="campo-usuario">Usuário:</label>
-    <input
-        id="campo-usuario"
-        type="text"
-        name="usuario"
-        autocomplete="username"
-        placeholder="Digite seu usuário"
-        required
-    >
-
-    <label for="campo-senha">Senha:</label>
-    <input
-        id="campo-senha"
-        type="password"
-        name="senha"
-        autocomplete="current-password"
-        placeholder="Digite sua senha"
-        required
-    >
-
-    <button type="submit" class="btn-login">
-        Entrar
-    </button>
-
-</form>
-
-<hr>
-
-<p class="texto-login">
-    Não é administrador?
-</p>
-
-<a href="/usuarios/cadastrar" class="btn-cadastro-admin">
-    Cadastrar administrador
-</a>
-
-</main>
-
-</body> 
+  <main class="login-card">
+    <a href="/" class="voltar">← Voltar</a>
+    <div class="login-icon"><img src="/img/iconelogin.png" alt="Área administrativa"></div>
+    <h1>Área Administrativa</h1>
+    {{#if erro}}<p role="alert">{{erro}}</p>{{/if}}
+    {{#if mensagem}}<p role="status">{{mensagem}}</p>{{/if}}
+    <form action="/loginadmin" method="POST">
+      <label for="email">E-mail institucional</label>
+      <input id="email" type="email" name="email" autocomplete="username" required>
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" name="senha" autocomplete="current-password" required>
+      <button type="submit" class="btn-login">Entrar</button>
+    </form>
+    <p class="texto-login">Representante de empresa?</p>
+    <a href="/loginempresa" class="btn-cadastro-admin">Acessar área da empresa</a>
+  </main>
+</body>
 </html>
