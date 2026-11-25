@@ -8,6 +8,7 @@
     "start": "node servidor.js",
     "dev": "node --watch servidor.js",
     "admin:create": "node scripts/criar-admin.js",
+    "db:seed:realista": "node scripts/popular-banco-realista.js",
     "dev:react": "npm --prefix react-app run dev",
     "build:react": "npm --prefix react-app run build",
     "test": "node --test"
