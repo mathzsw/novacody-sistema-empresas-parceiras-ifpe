@@ -1,7 +1,7 @@
 require('dotenv').config({ path: require('node:path').resolve(__dirname, '../.env') });
 
 const sequelize = require('../config/bd');
-const { Empresa, PerfilEmpresa, Categoria, Servico } = require('../models');
+const { Empresa, PerfilEmpresa, Categoria, Servico, Usuario, Avaliacao } = require('../models');
 
 const organizacoes = [
   {
@@ -63,6 +63,25 @@ async function executar() {
   const transacao = await sequelize.transaction();
 
   try {
+    const demonstracoesAntigas = [
+      'Aprender Tech Demonstração',
+      'ByteNorte Demonstração',
+      'Ponte Digital Demonstração',
+      'Oficina de Inovação Demonstração'
+    ];
+
+    for (const nome of demonstracoesAntigas) {
+      const empresaAntiga = await Empresa.findOne({ where: { nome }, transaction: transacao });
+      if (!empresaAntiga) continue;
+
+      await Servico.destroy({ where: { empresaId: empresaAntiga.id }, transaction: transacao });
+      await Avaliacao.destroy({ where: { empresaId: empresaAntiga.id }, transaction: transacao });
+      await PerfilEmpresa.destroy({ where: { empresaId: empresaAntiga.id }, transaction: transacao });
+      await Usuario.destroy({ where: { empresaId: empresaAntiga.id }, transaction: transacao });
+      await empresaAntiga.setCategorias([], { transaction: transacao });
+      await empresaAntiga.destroy({ transaction: transacao });
+    }
+
     const categoriasCriadas = {};
 
     for (const [nome, descricao] of categorias) {
@@ -75,11 +94,13 @@ async function executar() {
     }
 
     for (const dados of organizacoes) {
-      const [empresa] = await Empresa.findOrCreate({
+      const [empresa, criada] = await Empresa.findOrCreate({
         where: { nome: dados.nome },
         defaults: dados,
         transaction: transacao
       });
+
+      if (!criada) await empresa.update(dados, { transaction: transacao });
 
       const descricao = dados.status_empresa === 'pendente'
         ? 'Registro institucional incluído para análise. A situação do vínculo deve ser confirmada pelo campus.'
@@ -124,7 +145,7 @@ async function executar() {
     }
 
     await transacao.commit();
-    console.log('Banco de demonstração atualizado.');
+    console.log('Banco de demonstração atualizado e registros fictícios antigos substituídos.');
     console.log('4 organizações reais/institucionais registradas como pendentes de validação.');
     console.log('2 empresas fictícias identificadas explicitamente como demonstração.');
     console.log('Nenhum CNPJ, telefone ou e-mail real foi inventado.');
